@@ -462,7 +462,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child a {
-  background-color: #27292a;
+  background-color: #ededed;
   padding: 8px 10px 8px 20px;
   border-radius: 23px;
 }
@@ -778,9 +778,10 @@ Banner Style
   background-image: url(../images/banner-bg.jpg);
   background-position: center center;
   background-size: cover;
-  min-height: 380px;
-  border-radius: 23px;
+  min-height:380px;
+  border-radius: 40px;
   padding: 80px 60px;
+
 }
 
 .main-banner h6 {
