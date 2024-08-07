@@ -967,7 +967,7 @@ Featured Games Style
 
 .featured-games {
   border-radius: 23px;
-  background-color: #1f2122;
+  /*background-color: #1f2122;*/
   padding: 30px;
 }
 
@@ -1174,9 +1174,9 @@ Live Stream Style
 */
 
 .live-stream {
-  margin-top: 60px;
+  margin-top: 100px;
   border-radius: 23px;
-  background-color: #1f2122;
+  background-color: #ffffff;
   padding: 30px;
 }
 
@@ -1191,7 +1191,8 @@ Live Stream Style
 }
 
 .live-stream .thumb img {
-  border-radius: 23px; 
+    height:320px; /* 원하는 높이 값으로 변경 */
+    width:250px ;
 }
 
 .live-stream .thumb:hover .hover-effect {
@@ -1255,14 +1256,14 @@ Live Stream Style
 
 .live-stream span {
   font-size: 14px;
-  color: #ec6090;
+  color: #2b2b2b;
 }
 
 .live-stream .down-content h4 {
   margin-top: 8px;
   font-size: 20px;
   font-weight: 700;
-  margin-left: 61px;
+  margin-left:20px;
 }
 
 .live-stream .main-button {
