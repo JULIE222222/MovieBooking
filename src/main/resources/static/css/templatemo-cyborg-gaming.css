@@ -1271,6 +1271,17 @@ Live Stream Style
   margin-bottom: -53px;
 }
 
+.live-stream .number-overlay {
+  position: absolute;
+  top: 2px;  /* 조정하여 숫자의 수직 위치 변경 */
+  left: 5px; /* 조정하여 숫자의 수평 위치 변경 */
+  color:#2b2b2b; /* 숫자의 글자 색상 */
+  padding: 5px 10px; /* 숫자 주위의 여백 */
+  font-size: 30px; /* 숫자의 글꼴 크기 */
+}
+
+
+
 /* 
 ---------------------------------------------
 Featured Banner Style
@@ -1301,7 +1312,7 @@ Featured Banner Style
 
 /* 
 ---------------------------------------------
-Game Details Style
+Game Details Style (booking.html 구성)
 --------------------------------------------- 
 */
 
@@ -1313,16 +1324,16 @@ Game Details Style
 }
 
 .game-details .content {
-  border-radius: 23px;
   padding: 30px;
-  background-color: #1f2122;
+  background-color: #FFFAFA;
 }
 
 .game-details .content .left-info {
-  background-color: #27292a;
-  border-radius: 23px;
-  padding: 30px;
-  margin-bottom: 30px;
+  background-color: #2b2b2b;
+  /*padding: 30px;*/
+  hight: 20px;
+  width: 500px;
+  /*margin-bottom: 30px;*/
 }
 
 .game-details .content .left-info .left {
@@ -1360,10 +1371,11 @@ Game Details Style
 }
 
 .game-details .content .right-info {
-  background-color: #27292a;
-  border-radius: 23px;
-  padding: 30px;
-  margin-bottom: 30px;
+  background-color: #2b2b2b;
+    /*padding: 30px;*/
+    hight: 20px;
+    width: 500px;
+    /*margin-bottom: 30px;*/
 }
 
 .game-details .content .right-info ul li {
