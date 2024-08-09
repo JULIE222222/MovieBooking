@@ -179,7 +179,7 @@ p {
 
 .main-border-button a {
   font-size: 14px;
-  color: #ec6090;
+  color: #0253ab;
   background-color: transparent;
   border: 1px solid #2b2b2b;
   padding: 12px 30px;
@@ -1316,99 +1316,234 @@ Game Details Style (booking.html 구성)
 --------------------------------------------- 
 */
 
-.game-details h2 {
-  font-size: 45px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 60px 0px;
+/* 기본 스타일 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
+/* 전체 컨테이너 */
+.game-details .container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 예매 순서 표시란 */
+.game-details .booking-procedure {
+    height: 200px;
+    background-color: #ffffff;
+    color: #2b2b2b; /* 텍스트 색상 */
+    font-size: 20px; /* 폰트 크기 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    border: 1px solid #2b2b2b; /* 실선 테두리 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+        margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+        margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+
+}
+/* 메뉴 아이템 스타일 */
+.game-details .menu-item {
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+/* 콘텐츠 영역 */
 .game-details .content {
-  padding: 30px;
-  background-color: #FFFAFA;
+    display: block; /* 블록 요소로 설정 */
+    width: 100%;
+    margin-left : auto; /* 좌우 마진을 자동으로 설정하여 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    background-color: #FFFAFA;
+
+
 }
 
-.game-details .content .left-info {
-  background-color: #2b2b2b;
-  /*padding: 30px;*/
-  hight: 20px;
-  width: 500px;
-  /*margin-bottom: 30px;*/
+
+/* 영화 선택 타이틀 */
+.game-details .selection-title {
+     height: 40px;
+    background-color: #444; /* 제목 박스 배경색 */
+    color: #ffffff; /* 텍스트 색상 */
+    font-size: 24px; /* 폰트 크기 */
+    margin-bottom: 0px; /* 영화 목록과의 간격 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+    margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+
 }
 
-.game-details .content .left-info .left {
-  float: left;
+/* 영화 목록 */
+.game-details .movie-list {
+    flex: 1; /* 남은 공간을 채우도록 설정 */
+    height: 758px;
+    color: #2b2b2b; /* 텍스트 색상 */
+    background-color: #F2F0E5;
+     border: 1px solid #2b2b2b; /* 실선 테두리 */
+     margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+     margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
 }
 
-.game-details .content .left-info h4 {
-  font-size: 15px;
-  display: block;
+.game-details .movie-list ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.game-details .content .left-info span {
-  color: #666;
-  display: block;
-  margin-top: 7px;
-  font-weight: 400;
+
+/* 지역 선택 타이틀 */
+.game-details .contry {
+ height: 40px;
+    background-color: #444;
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: 0px;
+    text-align: center;
+    margin-bottom: -1px;
+    margin-right: -1px;
+
 }
 
-.game-details .content .left-info ul {
-  text-align: right;
+/* 극장지역 리스트 */
+.game-details .contry-list {
+    flex: 1; /* 남은 공간을 채우도록 설정 */
+    height: 758px;
+    background-color: #ffffff;
+    color: #2b2b2b; /* 텍스트 색상 */
+    border: 1px solid #2b2b2b; /* 실선 테두리 */
+    margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+    margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
 }
 
-.game-details .content .left-info ul li {
-  color: #fff;
-  font-size: 14px;
-  margin-bottom: 3px;
+.highlight {
+    font-size: 24px; /* 원하는 크기로 설정 */
+    font-weight: bold; /* 필요한 경우 굵게 설정 */
+}
+/* 상영 날짜 정보 */
+.game-details .date {
+          height: 40px;
+          background-color: #444;
+          color: #ffffff;
+          font-size: 25px;
+          margin-bottom: 0px;
+          text-align: center;
+          margin-bottom: -1px;
+          margin-right: -1px;
 }
 
-.game-details .content .left-info ul li:first-child i {
-  color: yellow;
+ /* border-bottom: solid 2px #cfcdc3;*/
+
+/* 상영 날짜 리스트*/
+.game-details .date-list {
+
+    flex: 1; /* 남은 공간을 채우도록 설정 */
+    height: 758px;
+    background-color: #F2F0E5;
+    color: #2b2b2b; /* 텍스트 색상 */
+    border: 1px solid #2b2b2b; /* 실선 테두리 */
+        margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+        margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
 }
 
-.game-details .content .left-info ul li:last-child i {
-  color: #ec6090;
+/* 상영 시간 타이틀 */
+.game-details .schedule {
+       height: 40px;
+       flex: 1; /* 남은 공간을 채우도 설정 */
+       color: #ffffff; /* 텍스트 색상 */
+       border: 1px solid #2b2b2b; /* 실선 테두리 */
+       margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+       margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
 }
 
-.game-details .content .right-info {
-  background-color: #2b2b2b;
-    /*padding: 30px;*/
-    hight: 20px;
-    width: 500px;
-    /*margin-bottom: 30px;*/
+.theater {
+    float: left;
+    width: 270px;
+    border-bottom: solid 2px #cfcdc3;
+    margin-top: 16px;
+    overflow: hidden;
 }
 
-.game-details .content .right-info ul li {
-  display: inline-block;
-  width: 23%;
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
+.theater ul li a span.time {
+    width: 49px;
+    height: 23px;
+    line-height: 23px;
+    border: 1px solid #2b2b2b;
+    background-image: none;
+    background-color: #f2f0e5;
 }
 
-.game-details .content .right-info ul li i {
-  display: block;
-  margin-bottom: 12px;
+
+/*상영 시간 리스트*/
+.game-details .schedule-list {
+    flex: 1; /* 남은 공간을 채우도록 설정 */
+       height: 758px;
+       background-color: #ffffff;
+       color: #2b2b2b; /* 텍스트 색상 */
+       border: 1px solid #2b2b2b; /* 실선 테두리 */
+       margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
+       margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
 }
 
-.game-details .content .right-info ul li:first-child i {
-  color: yellow;
-} 
-
-.game-details .content .right-info ul li i {
-  color: #ec6090;
+.time {
+    width: 60%; /* 버튼의 너비를 100%로 설정 */
+    padding: 0px; /* 여백 추가 */
+    font-size: 16px; /* 글자 크기 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    background-color: #F2F0E5; /* 버튼 배경색 */
+    color: #2b2b2b; /* 글자 색상 */
+    border: none; /* 기본 테두리 제거 */
+    border-radius: 30px; /* 모서리 둥글게 */
+    cursor: pointer; /* 마우스 커서 포인터로 변경 */
+    transition: background-color 0.3s; /* 배경색 전환 효과 */
+    margin-bottom: 10px;
 }
 
+/* 버튼 호버 효과 */
+.time:hover {
+    background-color: #bfbfbf; /* 호버 시 배경색 변경 */
+}
+
+
+
+
+/* 예매 버튼*/
 .game-details .main-border-button {
-  margin-top: 35px;
+    margin-top: 5px;
+
+}
+.game-details .main-border-button a {
+     display: block; /* 블록 요소로 설정 */
+     background-color: #ffffff;
+     width: 20%; /* 너비 50% */
+     font-size: 20px;
+     margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
+     text-align: center; /* 텍스트 중앙 정렬 */
+      font-weight: bold;
 }
 
-.game-details .main-border-button a {
-  text-align: center;
-  width: 100%;
-} 
+/*.game-details .movie-list ul li {
+    margin: 10px 0;
+    cursor: pointer;
+    color: #2b2b2b;
+    font-size: 14px;
+}*/
 
-/* 
+/*.game-details .movie-list ul li:first-child i {
+    color: yellow;
+}
+
+.game-details .movie-list ul li:last-child i {
+    color: #ec6090;
+}*/
+
+
+/*.game-details .schedule p {
+    color: #fff;
+}*/
+
+
+
+/*
 ---------------------------------------------
 Other Related Style
 --------------------------------------------- 
