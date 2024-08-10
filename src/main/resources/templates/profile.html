@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-  <head>
+<head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,246 +20,253 @@
     <link rel="stylesheet" href="/css/owl.css">
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+    <!--
 
-TemplateMo 579 Cyborg Gaming
+    TemplateMo 579 Cyborg Gaming
 
-https://templatemo.com/tm-579-cyborg-gaming
+    https://templatemo.com/tm-579-cyborg-gaming
 
--->
-  </head>
+    -->
+</head>
 
 <body>
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
+<!-- ***** Preloader Start *****
+<div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
-
-  <div th:replace="fragments/header ::header"></div>
-  <!-- ***** Header Area Start *****
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                     ***** Logo Start *****
-                    <a href="index.html" class="logo">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0253ab" class="bi bi-film" viewBox="0 0 16 16">
-                        <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
-                      </svg>
-                      <span style="font-size: 25px; color:#383838;">JYCinema</span>
-                        <img src="/images/logo.png" alt="">
-                    </a>
-                     ***** Logo End *****
-                     ***** Search End *****
-                    <div class="search-input">
-                      <form id="search" action="#">
-                        <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                     ***** Search End *****
-                     ***** Menu Start *****
-                    <ul class="nav">
-                      <li><a href="/">Home</a></li>
-                      <li><a href="/movie">영화</a></li>
-                      <li><a href="/booking">예매</a></li>
-                      <li><a href="/event">이벤트</a></li>
-                      <li><a href="/profile" >나의 영화박스 <img src="/images/profile-header.jpg" alt=""></a></li>
-                    </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                     ***** Menu End *****
-                </nav>
-            </div>
+        <span class="dot"></span>
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </div>
-  </header>
-   ***** Header Area End ***** -->
+</div>
+ ***** Preloader End ***** -->
 
+<div th:replace="fragments/header ::header"></div>
+<!-- ***** Header Area Start *****
+<header class="header-area header-sticky">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-content">
-
-          <!-- ***** Banner Start ***** -->
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="main-profile ">
-                <div class="row">
-                  <div class="col-lg-4">
-                    <img src="/images/profile.jpg" alt="" style="border-radius: 23px;">
-                  </div>
-                  <div class="col-lg-4 align-self-center">
-                    <div class="main-info header-text">
-                      <span>Offline</span>
-                      <h4>Alan Smithee</h4>
-                      <p>You Haven't Gone Live yet. Go Live By Touching The Button Below.</p>
-                      <div class="main-border-button">
-                        <a href="#">Start Live Stream</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 align-self-center">
-                    <ul>
-                      <li>Games Downloaded <span>3</span></li>
-                      <li>Friends Online <span>16</span></li>
-                      <li>Live Streams <span>None</span></li>
-                      <li>Clips <span>29</span></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="clips">
-                      <div class="row">
-                        <div class="col-lg-12">
-                          <div class="heading-section">
-                            <h4><em>Your Most Popular</em> Clips</h4>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                          <div class="item">
-                            <div class="thumb">
-                              <img src="/images/clip-01.jpg" alt="" style="border-radius: 23px;">
-                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                            </div>
-                            <div class="down-content">
-                              <h4>First Clip</h4>
-                              <span><i class="fa fa-eye"></i> 250</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                          <div class="item">
-                            <div class="thumb">
-                              <img src="/images/clip-02.jpg" alt="" style="border-radius: 23px;">
-                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                            </div>
-                            <div class="down-content">
-                              <h4>Second Clip</h4>
-                              <span><i class="fa fa-eye"></i> 183</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                          <div class="item">
-                            <div class="thumb">
-                              <img src="/images/clip-03.jpg" alt="" style="border-radius: 23px;">
-                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                            </div>
-                            <div class="down-content">
-                              <h4>Third Clip</h4>
-                              <span><i class="fa fa-eye"></i> 141</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                          <div class="item">
-                            <div class="thumb">
-                              <img src="/images/clip-04.jpg" alt="" style="border-radius: 23px;">
-                              <a href="https://www.youtube.com/watch?v=r1b03uKWk_M" target="_blank"><i class="fa fa-play"></i></a>
-                            </div>
-                            <div class="down-content">
-                              <h4>Fourth Clip</h4>
-                              <span><i class="fa fa-eye"></i> 91</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-12">
-                          <div class="main-button">
-                            <a href="#">Load More Clips</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Banner End ***** -->
-
-          <!-- ***** Gaming Library Start ***** -->
-          <div class="gaming-library profile-library">
-            <div class="col-lg-12">
-              <div class="heading-section">
-                <h4><em>Your Gaming</em> Library</h4>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="/images/game-01.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>Dota 2</h4><span>Sandbox</span></li>
-                  <li><h4>Date Added</h4><span>24/08/2036</span></li>
-                  <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
-                  <li><h4>Currently</h4><span>Downloaded</span></li>
-                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
-                </ul>
-              </div>
-              <div class="item">
-                <ul>
-                  <li><img src="/images/game-02.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>Fortnite</h4><span>Sandbox</span></li>
-                  <li><h4>Date Added</h4><span>22/06/2036</span></li>
-                  <li><h4>Hours Played</h4><span>745 H 22 Mins</span></li>
-                  <li><h4>Currently</h4><span>Downloaded</span></li>
-                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
-                </ul>
-              </div>
-              <div class="item last-item">
-                <ul>
-                  <li><img src="/images/game-03.jpg" alt="" class="templatemo-item"></li>
-                  <li><h4>CS-GO</h4><span>Sandbox</span></li>
-                  <li><h4>Date Added</h4><span>21/04/2022</span></li>
-                  <li><h4>Hours Played</h4><span>632 H 46 Mins</span></li>
-                  <li><h4>Currently</h4><span>Downloaded</span></li>
-                  <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <!-- ***** Gaming Library End ***** -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--<footer>
-    <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <p style="">Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
-
-          <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a>  Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
-        </div>
+          <div class="col-12">
+              <nav class="main-nav">
+                   ***** Logo Start *****
+                  <a href="index.html" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#0253ab" class="bi bi-film" viewBox="0 0 16 16">
+                      <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
+                    </svg>
+                    <span style="font-size: 25px; color:#383838;">JYCinema</span>
+                      <img src="/images/logo.png" alt="">
+                  </a>
+                   ***** Logo End *****
+                   ***** Search End *****
+                  <div class="search-input">
+                    <form id="search" action="#">
+                      <input type="text" placeholder="Type Something" id='searchText' name="searchKeyword" onkeypress="handle" />
+                      <i class="fa fa-search"></i>
+                    </form>
+                  </div>
+                   ***** Search End *****
+                   ***** Menu Start *****
+                  <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/movie">영화</a></li>
+                    <li><a href="/booking">예매</a></li>
+                    <li><a href="/event">이벤트</a></li>
+                    <li><a href="/profile" >나의 영화박스 <img src="/images/profile-header.jpg" alt=""></a></li>
+                  </ul>
+                  <a class='menu-trigger'>
+                      <span>Menu</span>
+                  </a>
+                   ***** Menu End *****
+              </nav>
+          </div>
       </div>
-    </div>
-  </footer>-->
-  <div th:replace="fragments/footer ::footer"></div>
+  </div>
+</header>
+ ***** Header Area End ***** -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-content">
+
+                <!-- ***** Banner Start ***** -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-profile ">
+                            <div class="row">
+                                <div class="col-lg-3"></div>
+                                    <div class="col-lg-5 align-self-center">
+                                    <div class="main-info header-text">
+                                        <h4>
+                                            <span>홍길동 님</span>
+                                            <span style="font-size: 12px;">hong24</span>
+                                        </h4>
+                                        <p style="font-size: 20px;">고객님은 "일반" 입니다.</p>
+                                        <!--<div class="main-border-button">
+                                          <a href="#">Start Live Stream</a>
+                                        </div>-->
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 align-self-center">
+                                    <ul>
+                                        <li>Games Downloaded <span>3</span></li>
+                                        <li>Friends Online <span>16</span></li>
+                                        <li>Live Streams <span>None</span></li>
+                                        <li>Clips <span>29</span></li>
+                                    </ul>
+                                </div>
+
+                            </div>
 
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="/jquery/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
+                          <div class="col-lg-12">
 
-  <script src="/js/isotope.min.js"></script>
-  <script src="/js/owl-carousel.js"></script>
-  <script src="/js/tabs.js"></script>
-  <script src="/js/popup.js"></script>
-  <script src="/js/custom.js"></script>
+                                <!-- MY 예매내역 Section -->
+                                <div class="clips">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="heading-section">
+                                                <h4>MY 예매내역</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="item">
+                                                <div class="down-content">
+                                                    <h4>v 예매내역</h4></br>
+                                                    <h4>v 취소내역</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- MY 무비로그 Section -->
+                                <div class="clips">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="heading-section">
+                                                <h4>MY 무비로그</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="item">
+                                                <div class="down-content">
+                                                    <h4>v 내가 보고싶은 영화</h4></br>
+                                                    <h4>v 내가 본 영화</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- MY 정보관리 Section -->
+                                <div class="clips">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="heading-section">
+                                                <h4>MY 정보관리</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="item">
+                                                <div class="down-content">
+                                                    <h4>v 회원정보 변경</h4></br>
+                                                    <h4>v 비밀번호 변경</h4></br>
+                                                    <h4>v 회원탈퇴</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More Clips Button -->
+                                <div class="clips">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="main-button">
+                                                <a href="#">Load More Clips</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
-  </body>
+                                <!-- ***** Banner End ***** -->
+
+                                        <!--     &lt;!&ndash; ***** Gaming Library Start ***** &ndash;&gt;
+                                             <div class="gaming-library profile-library">
+                                               <div class="col-lg-12">
+                                                 <div class="heading-section">
+                                                   <h4><em>Your Gaming</em> Library</h4>
+                                                 </div>
+                                                 <div class="item">
+                                                   <ul>
+                                                     <li><img src="/images/game-01.jpg" alt="" class="templatemo-item"></li>
+                                                     <li><h4>Dota 2</h4><span>Sandbox</span></li>
+                                                     <li><h4>Date Added</h4><span>24/08/2036</span></li>
+                                                     <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
+                                                     <li><h4>Currently</h4><span>Downloaded</span></li>
+                                                     <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                                                   </ul>
+                                                 </div>
+                                                 <div class="item">
+                                                   <ul>
+                                                     <li><img src="/images/game-02.jpg" alt="" class="templatemo-item"></li>
+                                                     <li><h4>Fortnite</h4><span>Sandbox</span></li>
+                                                     <li><h4>Date Added</h4><span>22/06/2036</span></li>
+                                                     <li><h4>Hours Played</h4><span>745 H 22 Mins</span></li>
+                                                     <li><h4>Currently</h4><span>Downloaded</span></li>
+                                                     <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                                                   </ul>
+                                                 </div>
+                                                 <div class="item last-item">
+                                                   <ul>
+                                                     <li><img src="/images/game-03.jpg" alt="" class="templatemo-item"></li>
+                                                     <li><h4>CS-GO</h4><span>Sandbox</span></li>
+                                                     <li><h4>Date Added</h4><span>21/04/2022</span></li>
+                                                     <li><h4>Hours Played</h4><span>632 H 46 Mins</span></li>
+                                                     <li><h4>Currently</h4><span>Downloaded</span></li>
+                                                     <li><div class="main-border-button border-no-active"><a href="#">Donwloaded</a></div></li>
+                                                   </ul>
+                                                 </div>
+                                               </div>
+                                             </div>
+                                             &lt;!&ndash; ***** Gaming Library End ***** &ndash;&gt;
+                                           </div>
+                                         </div>
+                                       </div>
+                                     </div>-->
+
+                                        <!--<footer>
+                                          <div class="container">
+                                            <div class="row">
+                                              <div class="col-lg-12">
+                                                <p style="">Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights reserved.
+
+                                                <br>Design: <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a>  Distributed By <a href="https://themewagon.com" target="_blank" >ThemeWagon</a></p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </footer>-->
+                                        <div th:replace="fragments/footer ::footer"></div>
+
+
+                                        <!-- Scripts -->
+                                        <!-- Bootstrap core JavaScript -->
+                                        <script src="/jquery/jquery.min.js"></script>
+                                        <script src="/js/bootstrap.min.js"></script>
+
+                                        <script src="/js/isotope.min.js"></script>
+                                        <script src="/js/owl-carousel.js"></script>
+                                        <script src="/js/tabs.js"></script>
+                                        <script src="/js/popup.js"></script>
+                                        <script src="/js/custom.js"></script>
+
+
+</body>
 
 </html>
