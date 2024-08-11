@@ -1733,15 +1733,22 @@ Profile Style
 }
 
 .clips .item  {
-  border-radius: 23px;
+  /*border-radius: 23px;*/
   padding: 30px 15px;
   background-color: #FAFAFA;
   margin-bottom: 30px;
 }
 
+.clips .list {
+  display: flex;
+  flex-direction : column;
+}
+
+
 .clips .item .thumb {
   position: relative;
   margin-bottom: 15px;
+
 }
 
 .clips .item .thumb a {
@@ -1760,7 +1767,7 @@ Profile Style
 }
 
 .clips .item h4 {
-  font-size: 15px;
+  font-size: 20px;
   display: inline-block;
 }
 
