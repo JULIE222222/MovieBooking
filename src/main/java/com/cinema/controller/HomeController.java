@@ -13,6 +13,7 @@ public class HomeController {
 
     @GetMapping("/movie")
     public String movie(){
+
         return "movie";
     }
 
