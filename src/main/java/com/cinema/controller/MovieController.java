@@ -1,7 +1,11 @@
 package com.cinema.controller;
 
+import com.cinema.domain.Movie;
+import com.cinema.service.MovieService;
 import com.cinema.utils.MyPath;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,10 +14,13 @@ import org.springframework.web.multipart.MultipartFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
+@RequiredArgsConstructor
 public class MovieController {
+    private final MovieService movieService;
 
     @PostMapping("/image")
     public @ResponseBody String image(MultipartFile pic){
@@ -27,7 +34,8 @@ public class MovieController {
         try{
             Files.write(imagePath, pic.getBytes());
         } catch (Exception e){
-
+            e.printStackTrace();
+            return "Error uploading image";
         }
         return imageFileName;
     }
@@ -37,5 +45,12 @@ public class MovieController {
         return "/uploadIMG/image";
     }
 
+    @GetMapping("/movie")
+    public String list(Model model){
 
+        List<Movie> movie = movieService.findAll();
+        model.addAttribute("movie", movie);
+
+    return "movie";
+    }
 }

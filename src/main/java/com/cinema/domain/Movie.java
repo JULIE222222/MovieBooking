@@ -1,31 +1,25 @@
 package com.cinema.domain;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.Date;
+
+@Getter
+@Setter
+@Entity
 public class Movie {
-    private Long movie_id;
+
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "movie_id")
+    private Long movieID;
     private String title;
-    private String poster_url;
+    private String director;
+    private String cast;
+    private Date releaseDate;
+    private int rating;
+    private String description;
+    private String posterURL;
 
-    public Long getmovie_id() {
-        return movie_id;
-    }
-
-    public void setmovie_id(Long movie_id) {
-        this.movie_id = movie_id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getPoster_url() {
-        return poster_url;
-    }
-
-    public void setPoster_url(String poster_url) {
-        this.poster_url = poster_url;
-    }
 }
