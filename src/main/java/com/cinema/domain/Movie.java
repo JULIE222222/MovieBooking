@@ -2,12 +2,14 @@ package com.cinema.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
 @Setter
+@RequiredArgsConstructor
 @Entity
 public class Movie {
 
