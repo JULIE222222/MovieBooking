@@ -18,10 +18,15 @@ public class Movie {
     private Long movieID;
     private String title;
     private String director;
+
+    @Column(columnDefinition = "TEXT")
     private String cast;
     private Date releaseDate;
     private int rating;
+    @Column(columnDefinition = "TEXT")
     private String description;
+
+    @Column(columnDefinition = "TEXT")
     private String posterURL;
 
 }
