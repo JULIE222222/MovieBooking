@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@Getter
-@Setter
+@Getter @Setter
 @RequiredArgsConstructor
 @Entity
 public class Movie {
@@ -21,8 +20,8 @@ public class Movie {
 
     @Column(columnDefinition = "TEXT")
     private String cast;
-    private Date releaseDate;
-    private int rating;
+    private LocalDate releaseDate;
+    private String rating;
     @Column(columnDefinition = "TEXT")
     private String description;
 

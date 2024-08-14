@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h1>영화 정보 전송 페이지</h1>
+<hr/>
+
+<form role ="form" action="/movieInfoForm" th:object="${movieInfoForm}" method="post" enctype="multipart/form-data">
+    <div class = "form-group">
+        <label>사진 업로드: </label>
+        <input type="file" id="pic" name="pic"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>영화 제목: </label>
+        <input type="text" th:field="*{title}" class="form-control" placeholder="영화제목을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>영화 감독: </label>
+        <input type="text" th:field="*{director}" class="form-control" placeholder="영화감독을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>출연진: </label>
+        <input type="text" th:field="*{cast}" class="form-control" placeholder="출연진을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>개봉날짜: </label>
+        <input type="date" th:field="*{releaseDate}"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>상영 등급: </label>
+        <input type="text" th:field="*{rating}" class="form-control" placeholder="상영등급을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>영화설명: </label>
+        <input type="text" th:field="*{description}" class="form-control" placeholder="영화설명을 입력하세요"><br/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">전송</button>
+
+</form>
+
+</body>
+</html>
