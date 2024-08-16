@@ -83,6 +83,7 @@ public class MovieController {
         }
     }
 
+    //영화정보 등록페이지
     @GetMapping("/movieInfoForm")
     public String getImageUploadPage(Model model){
 
@@ -90,12 +91,22 @@ public class MovieController {
         return "/uploadInfo/movieInfoForm";
     }
 
+    //영화 전체목록
     @GetMapping("/movie")
-    public String list(Model model){
+    public String getAllMovies(Model model){
 
-        List<Movie> movie = movieService.findAll();
+        List<Movie> movie = movieService.getAllMovies();
         model.addAttribute("movie", movie);
 
     return "movie";
+    }
+
+    //영화 상세페이지 로드
+    @GetMapping("/movieDetailPage/{id}")
+    public String MovieDetailPage(@RequestParam("id") Long movieId, Model model){
+         //Id로 영화 정보가져오기
+        Movie movie = movieService.getmovieById(movieId);
+        model.addAttribute("movie",movie);
+        return "/movieDetailPage";
     }
 }

@@ -22,14 +22,13 @@ public class MovieService{
         return movie.getMovieID();
     }
 
-
-    public List<Movie> findAll() {
+    // 모든 영화 pk 가져오기
+    public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
 
-    public Movie findByMovieID(Long MovieID) {
-        return movieRepository.findByMovieID(MovieID);
+    // 영화 pk 찾기
+    public Movie getmovieById(Long movieId) {
+        return movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("영화를 찾을 수 없습니다."));
     }
-
-
 }

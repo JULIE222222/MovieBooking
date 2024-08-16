@@ -21,16 +21,12 @@
   <link rel="stylesheet" href="/css/animate.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
   <!--
-
   TemplateMo 579 Cyborg Gaming
-
   https://templatemo.com/tm-579-cyborg-gaming
-
   -->
 </head>
 
 <body>
-
 <!-- ***** Preloader Start ***** -->
 <!--<div id="js-preloader" class="js-preloader">
   <div class="preloader-inner">
@@ -42,14 +38,11 @@
     </div>
   </div>
 </div>-->
-
 <!--***** Preloader End *****-->
 <div th:replace="fragments/header ::header"></div>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-12" >
-
         <!-- ***** Live Stream Start ***** -->
         <div class="live-stream">
           <div class="col-lg-12">
@@ -58,53 +51,41 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-3 col-sm-6" th:each="movie,index : ${movie}">
               <div class="item">
 
                 <div class="thumb">
-                  <img src="/images/pilot-movie.jpg" alt="영화포스터">
-                  <div class="number-overlay">1</div>
+                  <img th:src="'/upload/' + ${movie.posterURL}" alt="영화포스터">
+                  <div class="number-overlay" th:text="${index.index + 1}"></div>
                   <div class="hover-effect">
-                    <div class="content">
-                 <!--     <div class="live">
-                        <a href="#">Live</a>
-                      </div>-->
-                    </div>
+                    <div class="content"></div>
                   </div>
                 </div>
                 <div class="down-content">
-                  <!--<div class="avatar">
-                    <img src="/images/avatar-01.jpg" alt="" style="max-width: 46px; border-radius: 50%; float: left;">
-                  </div>-->
                   <div style="display: flex; align-items: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0px" y="0px" style="enable-background:new 0 0 500 500" viewBox="0 0 500 500" width="20" height="20">
                       <path d="M443.638 500H56.352C25.252 500 0 474.759 0 443.638V56.362C0 25.242 25.252 0 56.352 0h387.286C474.768 0 500 25.241 500 56.362v387.276c0 31.12-25.231 56.362-56.362 56.362" style="fill:#dc7317"/>
                       <path d="M107.957 422.277V173.783H80.436l35.619-96.076h69.04v344.57zM407.825 195.418H286.972v-50.514h126.3V77.701H211.217v183.56h129.446v96.055h-54.578v-45.109h-74.868v102.358c0 4.25 3.456 7.695 7.705 7.695H407.825a7.695 7.695 0 0 0 7.695-7.695V203.114a7.695 7.695 0 0 0-7.695-7.696" style="fill:#fff"/>
                     </svg>
-                    <h4 style="margin-left: 8px;">영화제목</h4>
+                    <h4 th:text="${movie.title}" style="margin-left: 8px;"></h4>
                   </div>
-
                   <span> 예매율 90% &nbsp;</span>
-
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
                   </svg>
-                  <span>96분</span></br></br>
-
+                  <span th:text="${movie.runningTime} + '분'"></span></br></br>
                   <li>
-                    <a href="#" style="color: #2b2b2b; background-color: #E0ECF8; padding: 10px 15px; border-radius: 50px; text-decoration: none; margin-right: 10px;">
+                    <a href="/booking" style="color: #2b2b2b; background-color: #E0ECF8; padding: 10px 15px; border-radius: 50px; text-decoration: none; margin-right: 10px;">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
                         <path d="M4 4.85v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9zm-7 1.8v.9h1v-.9zm7 0v.9h1v-.9z"/>
                         <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3zM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9z"/>
                       </svg> 예매하기
                     </a>
-                    <a href="#" style="color: #2b2b2b; background-color: #E0ECF8; padding: 10px 15px; border-radius: 50px; text-decoration: none;">
+                    <a href="/movieDetailPage" style="color: #2b2b2b; background-color: #E0ECF8; padding: 10px 15px; border-radius: 50px; text-decoration: none;">
                       <i class="fa fa-eye"></i> 상세정보
                     </a>
                   </li>
-
-
                 </div>
               </div>
             </div>
@@ -114,8 +95,6 @@
 </div>
 
 <div th:replace="fragments/footer ::footer"></div>
-
-
 <!-- Scripts -->
 <!-- Bootstrap core JavaScript -->
 <script src="/jquery/jquery.min.js"></script>

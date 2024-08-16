@@ -21,6 +21,7 @@ public class Movie {
     @Column(columnDefinition = "TEXT")
     private String cast;
     private LocalDate releaseDate;
+    private int runningTime;
     private String rating;
     @Column(columnDefinition = "TEXT")
     private String description;

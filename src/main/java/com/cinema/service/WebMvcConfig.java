@@ -15,7 +15,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
         //외부에 있는 폴더를 내프로젝트에서 찾을 수 있도록 세팅함
         registry.addResourceHandler("/upload/**")
                 // /upload 경로를 적으면 그 경로를
-                .addResourceLocations("C:/Users/YUN/Desktop/MovieBooking/movieposter"+ MyPath.IMAGEPATH)
+                .addResourceLocations("file:///"+ MyPath.IMAGEPATH)
                 .setCachePeriod(60*10*6)
                 .resourceChain(true)
                 .addResolver(new PathResourceResolver());
