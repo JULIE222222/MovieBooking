@@ -6,6 +6,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ public class MovieService{
     private final MovieRepository movieRepository;
 
     @Transactional
+    // 영화 정보 저장
     public Long save(Movie movie) {
         movieRepository.save(movie);
         return movie.getMovieID();
@@ -27,13 +29,14 @@ public class MovieService{
         return movieRepository.findAll();
     }
 
-    // 영화 pk 찾기
-   /* public Movie getmovieById(Long movieId) {
-        return movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("영화를 찾을 수 없습니다."));
-    }*/
-
-
+    // pk값 찾기
     public Movie findById(Long movieId) {
         return movieRepository.findByMovieID(movieId);
     }
+
+    // 개봉일 내림차순으로 4개의 데이터 불러오기(메인화면 영화리스트 띄우기)
+    public List<Movie> get4Movies(){
+        return movieRepository.findTop4ByOrderByReleaseDateDesc();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.cinema.controller;
 
 import com.cinema.domain.Movie;
+import com.cinema.repository.MovieRepository;
 import com.cinema.service.MovieService;
 import com.cinema.utils.MyPath;
 import lombok.RequiredArgsConstructor;
@@ -40,6 +41,8 @@ public class MovieController {
         return imageFileName;
     }*/
 
+
+
     @PostMapping("/movieInfoForm")
     public String uploadMovie(
             @RequestParam("pic") MultipartFile pic,
@@ -73,7 +76,6 @@ public class MovieController {
             movie.setPosterURL(imageFileName); // 이미지 파일 경로 설정
 
             movieService.save(movie);
-
             model.addAttribute("message", "영화 정보가 성공적으로 업로드되었습니다.");
             return "redirect:/movieInfoForm";
         } catch (Exception e) {
@@ -91,10 +93,19 @@ public class MovieController {
         return "/uploadInfo/movieInfoForm";
     }
 
+    //메인화면 best4 영화목록 띄우기
+    @GetMapping ("/")
+    public String findTop4ByMovieDateDesc(Model model){
+        List<Movie> recentMovie = movieService.get4Movies();
+        model.addAttribute("movie",recentMovie);
+
+        return "index";
+    }
+
+
     //영화 전체목록
     @GetMapping("/movie")
     public String getAllMovies(Model model){
-
         List<Movie> movie = movieService.getAllMovies();
         model.addAttribute("movie", movie);
 
