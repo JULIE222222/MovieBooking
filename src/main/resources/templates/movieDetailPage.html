@@ -33,7 +33,7 @@
                 </div>
                 <div class="description">
                     <h2 th:text="${movie.title}"></h2><br/>
-                    <p th:text="${movie.releaseDate} + ' 개봉 | ' + ${movie.runningTime} + '분 | ' + ${movie.rating} + '세이상관람가'"></p>
+                    <p th:text="${movie.releaseDate} + ' 개봉 | ' + ${movie.runningTime} + '분 | ' + (${movie.rating == 'all'} ? '전체관람가' : ${movie.rating} + '세 이상 관람가')"></p>
                     </p><br/>
 
                     <p class="stars">
