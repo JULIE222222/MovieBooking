@@ -28,7 +28,12 @@ public class MovieService{
     }
 
     // 영화 pk 찾기
-    public Movie getmovieById(Long movieId) {
+   /* public Movie getmovieById(Long movieId) {
         return movieRepository.findById(movieId).orElseThrow(() -> new RuntimeException("영화를 찾을 수 없습니다."));
+    }*/
+
+
+    public Movie findById(Long movieId) {
+        return movieRepository.findByMovieID(movieId);
     }
 }

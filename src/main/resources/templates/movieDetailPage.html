@@ -27,13 +27,12 @@
             <div class="article">
                 <div class="carousel">
                     <div class="img">
-                        <img th:src="${'/upload/' + ${movie.posterURL}}" alt="영화포스터">
+                        <img th:src="'/upload/' + ${movie.posterURL}" alt="영화포스터">
                     </div>
                     <div class="span-cont"></div>
                 </div>
                 <div class="description">
                     <h2 th:text="${movie.title}"></h2><br/>
-                    <!--<p>Victory</p>-->
                     <p th:text="${movie.releaseDate} + ' 개봉 | ' + ${movie.runningTime} + '분 | ' + ${movie.rating} + '세이상관람가'"></p>
                     </p><br/>
 
@@ -56,7 +55,7 @@
                     </p>
                     <br/>
                     <p th:text="'감독: ' + ${movie.director}"></p>
-                    <p th:text="'출연진: ' + ${movie.cast}"></p>
+                    <p th:text="'출연진: ' + ${movie.cast}"></p><br/>
                     <p th:text="${movie.description}"></p><br/>
 
                 </div>
