@@ -87,7 +87,7 @@ public class MovieController {
 
     //영화정보 등록페이지
     @GetMapping("/movieInfoForm")
-    public String getImageUploadPage(Model model){
+    public String getUploadMoviePage(Model model){
 
         model.addAttribute("movieInfoForm", new Movie());
         return "/uploadInfo/movieInfoForm";
