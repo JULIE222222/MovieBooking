@@ -76,6 +76,7 @@ public class MovieController {
             movie.setPosterURL(imageFileName); // 이미지 파일 경로 설정
 
             movieService.save(movie);
+
             model.addAttribute("message", "영화 정보가 성공적으로 업로드되었습니다.");
             return "redirect:/movieInfoForm";
         } catch (Exception e) {

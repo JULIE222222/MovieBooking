@@ -240,11 +240,26 @@ Header Style(공통)
 
 .header-area .main-nav {
   min-height: 80px;
+  width: 1200px;
   background: transparent;
   display: flex;
-  padding: 15px 0px;
+  padding: 0px 0px;
   border-radius: 50px;
+  margin: 0 auto; /* 요소를 가로축 기준으로 중앙에 배치 */
+  justify-content: space-between; /* 로고와 메뉴 사이 간격을 최대화 */
+      align-items: center;
 }
+
+.header-area .nav {
+  margin-left: auto; /* 메뉴를 오른쪽으로 정렬 */
+  display: flex; /* 메뉴 항목들을 가로로 나열 */
+  list-style: none; /* 기본 리스트 스타일 제거 */
+}
+
+.header-area .nav li {
+   margin-left: 15px; /* 메뉴 항목 사이의 간격 설정 */
+   }
+
 
 .background-header .main-nav {
   padding: 0px;

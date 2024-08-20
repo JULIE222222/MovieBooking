@@ -1,4 +1,4 @@
-package com.cinema.service;
+package com.cinema.service.config;
 
 import com.cinema.utils.MyPath;
 import org.springframework.context.annotation.Configuration;

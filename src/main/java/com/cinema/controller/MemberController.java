@@ -34,12 +34,13 @@ public class MemberController {
 
             memberService.join(member);
 
+            model.addAttribute("message", "회원가입이 완료되었습니다.");
+            return "redirect:/";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", "회원가입 중 오류가 발생했습니다.");
             return "members/joinForm";
         }
-        return "redirect:/";
     }
 
     @GetMapping("/joinForm")
@@ -47,5 +48,4 @@ public class MemberController {
         model.addAttribute("joinForm", new Member());
         return "members/joinForm";
     }
-
 }

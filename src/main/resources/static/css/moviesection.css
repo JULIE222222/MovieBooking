@@ -46,6 +46,7 @@
 .live-stream .thumb {
   position: relative;
   overflow: hidden;
+  margin-left: 10%;
   margin-bottom: 5px;
 }
 
@@ -54,6 +55,7 @@
     height:320px; /* 원하는 높이 값으로 변경 */
     width:250px ;
 }
+
 
 .live-stream .number-overlay {
  margin-top: 30px;
