@@ -16,7 +16,8 @@
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="/css/fontawesome.css">
-  <link rel="stylesheet" href="/css/templatemo-cyborg-gaming.css">
+  <link rel="stylesheet" href="/css/commonsection.css">
+  <link rel="stylesheet" href="/css/homesection.css">
   <link rel="stylesheet" href="/css/owl.css">
   <link rel="stylesheet" href="/css/animate.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
@@ -83,7 +84,7 @@
             </div>
 
 
-              <div class="row">
+              <div class="row" style="padding-left:10px">
                 <div class="col-lg-3 col-sm-6" th:each="movie : ${movie}">
                   <div class="item">
 
@@ -95,8 +96,8 @@
 
                     <ul style="display: flex; list-style-type: none; float: right; padding-right: 15px;">
                       <!-- 정보 표시용 버튼 -->
-                      <li style="margin-right: 20px;">
-                        <a href="#" style="display: flex; width: 80px; align-items: center; text-decoration: none; color: #ffffff; background-color: #413839; padding: 10px 15px; border-radius: 10px;">
+                      <li style="margin-right: 15px;">
+                        <a style="display: flex; width: 90px; align-items: center; text-decoration: none; color: #ffffff; background-color: #413839; padding: 10px 20px; border-radius: 7px;">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
                             <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
                           </svg>
@@ -106,71 +107,19 @@
 
                       <!-- 예매 페이지로 넘어가는 버튼 -->
                       <li>
-                        <a href="/booking" style="display: flex; width: 180px; align-items: center; text-decoration: none; color: #ffffff; background-color: #339BCF; padding: 10px 15px; border-radius: 10px;">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="skyblue" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                        <a href="/booking" style="display: flex; width: 180px; align-items: center; text-decoration: none; color: #2b2b2b; background-color: #ADD8E6; padding: 10px 46px; border-radius: 7px;">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2b2b2b" class="bi bi-calendar-check" viewBox="0 0 16 16">
                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0"/>
                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
                           </svg>
-                          <span class="rating" style="margin-left: 10px;">예매하기</span>
+                          <span class="rating" style="margin-left: 10px; ">예매하기</span>
                         </a>
                       </li>
                     </ul>
-
                   </div>
                 </div>
               </div><br/>
-
-
             </div>
-
-
-  <!--       ***** Gaming Library Start *****
-        <div class="gaming-library">
-          <div class="col-lg-12">
-            <div class="heading-section">
-              <h4>Event</h4>
-            </div>
-            <div class="item">
-              <ul>
-                <li><img src="/images/game-01.jpg" alt="" class="templatemo-item"></li>
-                <li><h4>Dota 2</h4><span>Sandbox</span></li>
-                <li><h4>Date Added</h4><span>24/08/2036</span></li>
-                <li><h4>Hours Played</h4><span>634 H 22 Mins</span></li>
-                <li><h4>Currently</h4><span>Downloaded</span></li>
-                <li><div class="main-border-button"><a href="#">이벤트 바로가기</a></div></li>
-              </ul>
-            </div>
-            <div class="item">
-              <ul>
-                <li><img src="/images/game-02.jpg" alt="" class="templatemo-item"></li>
-                <li><h4>Fortnite</h4><span>Sandbox</span></li>
-                <li><h4>Date Added</h4><span>22/06/2036</span></li>
-                <li><h4>Hours Played</h4><span>740 H 52 Mins</span></li>
-                <li><h4>Currently</h4><span>Downloaded</span></li>
-                <li><div class="main-border-button"><a href="#">이벤트 바로가기</a></div></li>
-              </ul>
-            </div>
-            <div class="item last-item">
-              <ul>
-                <li><img src="/images/game-03.jpg" alt="" class="templatemo-item"></li>
-                <li><h4>CS-GO</h4><span>Sandbox</span></li>
-                <li><h4>Date Added</h4><span>21/04/2036</span></li>
-                <li><h4>Hours Played</h4><span>892 H 14 Mins</span></li>
-                <li><h4>Currently</h4><span>Downloaded</span></li>
-                <li><div class="main-border-button"><a href="#">이벤트 바로가기</a></div></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-12">
-            <div class="main-button">
-              <a href="/event">More Event</a>
-            </div>
-          </div>
-        </div>
-         ***** Gaming Library End ***** -->
-      </div>
-    </div>
-<!--</div>-->
 
 <div th:replace="fragments/footer ::footer"></div>
 

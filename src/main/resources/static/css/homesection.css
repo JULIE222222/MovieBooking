@@ -1,0 +1,204 @@
+/*
+---------------------------------------------
+메인화면 영화홍보
+---------------------------------------------
+*/
+
+
+.main-banner {
+  background-image: url(../images/banner-bg.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height:380px;
+  border-radius: 40px;
+  padding: 80px 60px;
+
+}
+
+.main-banner h6 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.main-banner h4 {
+  font-size: 45px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.main-banner h4 em {
+  font-style: normal;
+  color: #17004d;
+}
+
+/*
+---------------------------------------------
+메인화면
+---------------------------------------------
+*/
+
+
+
+.item a {
+  font-size: 15px;
+  color: #2b2b2b;
+  background-color: transparent;
+  /*border: 1px solid #2b2b2b;*/
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 5px;
+  font-weight: 530;
+  text-transform: capitalize;
+
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+   float: right;
+    padding-right: 10px;
+    padding-top: 10px;
+
+}
+
+.item a:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #0253ab;
+   float: right;
+    padding-right: 10px;
+}
+
+
+html,
+body {
+  background: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+body .page-content {
+
+  box-shadow: 1px 1px 8px 1px rgb(200 200 200);
+  border-radius: 30px;
+  margin-top: 110px;
+  background-color: #ffffff;
+  padding: 50px;
+
+}
+
+p {
+  font-size: 15px;
+  color: #666;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+
+::selection {
+  background: #0253ab;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #0253ab;
+  color: #fff;
+}
+
+
+.heading-section h3{
+  margin-top: 50px;
+  margin-bottom: 0px;
+  color: #2b2b2b;
+  font-size: 30px;
+  font-weight: 700;
+  padding-right: 330px;
+  text-align: right;
+}
+
+.item h2{
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: #2b2b2b;
+  font-weight: 550;
+  font-size: 23px;
+  text-align: center;
+  /*padding-left: 10px;*/
+}
+
+.Best4Img {
+    /*float: left;
+    width: 90%;*/
+    height: 430px;
+    padding: 10px 10px;
+}
+
+.templatemo-item {
+	max-width: 80px;
+	border-radius: 23px;
+}
+
+.main-button-detail a {
+  margin-top: 50px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  text-align: right;
+  color: #ffffff;
+  background-color: #0253ab;
+  padding: 12px 30px;
+  display: inline-block;
+  border-radius: 25px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-button a {
+  margin-top: 70px;
+  margin-bottom: 0px;
+  font-size: 15px;
+  text-align: right;
+  color: #2b2b2b;
+  /*background-color: #0253ab;*/
+  /*padding: 12px 30px;*/
+  display: inline-block;
+  /*border-radius: 25px;*/
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  padding-right: 10px;
+}
+
+.main-button a:hover {
+  margin-top: 70px;
+  margin-bottom: 0px;
+  /*background-color: #fff;*/
+  color: #0253ab;
+  float: right;
+  padding-right: 10px;
+
+}
+
+
+
+
+.border-no-active a {
+  border-color: #666;
+  color: #666;
+}
+
+.border-no-active a:hover{
+  border-color: #666;
+  color: #666;
+  background-color: transparent;
+}
+
+section {
+  margin-top: 120px;
+}

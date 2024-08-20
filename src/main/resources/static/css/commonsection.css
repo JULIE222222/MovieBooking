@@ -1,36 +1,18 @@
-/*
 
-TemplateMo 579 Cyborg Gaming
-
-https://templatemo.com/tm-579-cyborg-gaming
-
-*/
-
-/* ---------------------------------------------
-Table of contents
-------------------------------------------------
-01. font & reset css
-02. reset
-03. global styles
-04. header
-05. banner
-06. features
-07. testimonials
-08. contact
-09. footer
-
---------------------------------------------- */
 /* 
 ---------------------------------------------
 font & reset css
 --------------------------------------------- 
 */
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900");
-/* 
+
+/*
 ---------------------------------------------
 reset
 --------------------------------------------- 
 */
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -79,7 +61,7 @@ header, nav, section, article, aside, footer, hgroup {
 html, body {
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  background-color: #E0ECF8;
+/*  background-color: #E0ECF8;*/
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -116,173 +98,14 @@ img {
   overflow: hidden;
 }
 
-/* 
----------------------------------------------
-home화면 CSS (index.html)
---------------------------------------------- 
-*/
-html,
-body {
-  background: #ffffff;
-  font-family: 'Poppins', sans-serif;
-}
-
-body .page-content {
-
-  box-shadow: 1px 1px 8px 1px rgb(200 200 200);
-  border-radius: 30px;
-  margin-top: 110px;
-  background-color: #ffffff;
-  padding: 50px;
-
-}
-
-p {
-  font-size: 15px;
-  color: #666;
-  line-height: 30px;
-  margin-bottom: 0px;
-}
-
-::selection {
-  background: #0253ab;
-  color: #fff;
-}
-
-::-moz-selection {
-  background: #0253ab;
-  color: #fff;
-}
-
-
-.heading-section h3{
-  margin-top: 50px;
-  margin-bottom: 0px;
-  color: #2b2b2b;
-  font-size: 30px;
-  font-weight: 700;
-  padding-right: 330px;
-  text-align: right;
-}
-
-.item h2{
-  margin-top: 5px;
-  margin-bottom: 20px;
-  color: #2b2b2b;
-  font-weight: 550;
-  font-size: 23px;
-  text-align: center;
-  /*padding-left: 10px;*/
-}
-
-.Best4Img {
-    /*float: left;
-    width: 90%;*/
-    height: 430px;
-    padding: 10px 10px;
-}
-
-.templatemo-item {
-	max-width: 80px; 
-	border-radius: 23px;
-}
-
-.main-button-detail a {
-  margin-top: 50px;
-  margin-bottom: 0px;
-  font-size: 15px;
-  text-align: right;
-  color: #ffffff;
-  background-color: #0253ab;
-  padding: 12px 30px;
-  display: inline-block;
-  border-radius: 25px;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.main-button a {
-  margin-top: 70px;
-  margin-bottom: 0px;
-  font-size: 15px;
-  text-align: right;
-  color: #2b2b2b;
-  /*background-color: #0253ab;*/
-  /*padding: 12px 30px;*/
-  display: inline-block;
-  /*border-radius: 25px;*/
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
-  float: right;
-  padding-right: 10px;
-}
-
-.main-button a:hover {
-  margin-top: 70px;
-  margin-bottom: 0px;
-  /*background-color: #fff;*/
-  color: #0253ab;
-  float: right;
-  padding-right: 10px;
-
-}
-
-
-.item a {
-  font-size: 14px;
-  color: #0253ab;
-  background-color: transparent;
-  border: 1px solid #2b2b2b;
-  padding: 12px 30px;
-  display: inline-block;
-  border-radius: 5px;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
-   float: right;
-    padding-right: 10px;
-}
-
-.item a:hover {
-  border-color: #fff;
-  background-color: #fff;
-  color: #0253ab;
-   float: right;
-    padding-right: 10px;
-}
-
-.border-no-active a {
-  border-color: #666;
-  color: #666;
-}
-
-.border-no-active a:hover{
-  border-color: #666;
-  color: #666;
-  background-color: transparent;
-}
-
-section {
-  margin-top: 120px;
-}
 
 /* 
 ---------------------------------------------
-Pre-loader Style
+Pre-loader Style (로딩중 뜨는 페이지)
 --------------------------------------------- 
 */
 
+/*
 .js-preloader {
   position: fixed;
   top: 0;
@@ -376,12 +199,13 @@ Pre-loader Style
   background: #0253ab;
   border-radius: 50%;
 }
+*/
 
 
 
 /* 
 ---------------------------------------------
-Header Style
+Header Style(공통)
 --------------------------------------------- 
 */
 
@@ -818,39 +642,7 @@ Header Style
   }
 }
 
-/* 
----------------------------------------------
-메인화면 영화홍보
---------------------------------------------- 
-*/
 
-.main-banner {
-  background-image: url(../images/banner-bg.jpg);
-  background-position: center center;
-  background-size: cover;
-  min-height:380px;
-  border-radius: 40px;
-  padding: 80px 60px;
-
-}
-
-.main-banner h6 {
-  font-size: 20px;
-  color: #fff;
-  font-weight: 400;
-  margin-bottom: 25px;
-}
-
-.main-banner h4 {
-  font-size: 45px;
-  text-transform: uppercase;
-  margin-bottom: 25px;
-}
-
-.main-banner h4 em {
-  font-style: normal;
-  color: #17004d;
-}
 
 /* 
 ---------------------------------------------
@@ -858,6 +650,7 @@ Most Popular Style
 --------------------------------------------- 
 */
 
+/*
 .most-popular {
   margin-top: 60px;
   padding: 30px;
@@ -920,13 +713,14 @@ Most Popular Style
   text-align: center;
   margin-bottom: -53px;
 }
+*/
 
 /* 
 ---------------------------------------------
 Gaming Library Style
 --------------------------------------------- 
 */
-
+/*
 .gaming-library {
   margin-top: 60px;
   padding: 30px;
@@ -985,7 +779,7 @@ Gaming Library Style
 .gaming-library .main-button {
   text-align: center;
   margin-bottom: -53px;
-}
+}*/
 
 /* 
 ---------------------------------------------
@@ -1014,10 +808,10 @@ footer p a:hover {
 Featured Games Style
 --------------------------------------------- 
 */
-
+/*
 .featured-games {
   border-radius: 23px;
-  /*background-color: #1f2122;*/
+  *//*background-color: #1f2122;*//*
   padding: 30px;
 }
 
@@ -1117,9 +911,9 @@ Featured Games Style
 .featured-games .owl-nav .owl-next span:hover {
   opacity: 1;
   color: #ec6090;
-}
+}*/
 
-.top-downloaded {
+/*.top-downloaded {
   border-radius: 23px;
   background-color: #1f2122;
   padding: 30px;
@@ -1185,7 +979,7 @@ Featured Games Style
   font-weight: 600;
   color: #ec6090;
   font-size: 15px;
-}
+}*/
 
 /* 
 ---------------------------------------------
@@ -1193,6 +987,7 @@ Start Stream Style
 --------------------------------------------- 
 */
 
+/*
 .start-stream .heading-section {
   margin-top: 60px;
   text-align: center;
@@ -1216,302 +1011,11 @@ Start Stream Style
   text-align: center;
   margin-top: 30px;
 }
-
-/* 
----------------------------------------------
-전체영화 리스트 페이지
---------------------------------------------- 
-*/
-.live-stream a {
-  font-size: 14px;
-  color: #0253ab;
-  background-color: transparent;
-  border: 1px solid #2b2b2b;
-  padding: 12px 30px;
-  display: inline-block;
-  border-radius: 5px;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-  transition: all .3s;
-  position: relative;
-  overflow: hidden;
-}
-
-.live-stream a:hover {
-  border-color: #fff;
-  background-color: #fff;
-  color: #0253ab;
-}
-
-.live-stream {
-  margin-top: 100px;
-  border-radius: 23px;
-  background-color: #ffffff;
-  padding: 30px;
-}
-
-.live-stream .item {
-  margin-bottom: 30px;
-}
-
-.live-stream .thumb {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.live-stream .thumb img {
-    height:320px; /* 원하는 높이 값으로 변경 */
-    width:250px ;
-}
-
-.live-stream .thumb:hover .hover-effect {
-  opacity: 1;
-  visibility: visible;
-}
-
-.live-stream .hover-effect {
-  opacity: 0;
-  visibility: hidden;
-  transition: all .4s;
-}
-
-.live-stream .hover-effect .live a { 
-  position: absolute;
-  background-color: rgba(236, 96, 144, 0.9);
-  padding: 5px 10px;
-  border-radius: 23px;
-  color: #fff;
-  font-size: 14px;
-  right: 15px;
-  top: 15px;
-}
-
-.live-stream .hover-effect ul {
-  position: absolute;
-  bottom: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.live-stream .hover-effect ul li {
-  display: inline-block;
-  margin: 0px 5px;
-}
-
-.live-stream .hover-effect ul li a {
-  background-color: rgba(236, 96, 144, 0.9);
-  padding: 5px 10px;
-  border-radius: 23px;
-  color: #fff;
-  font-size: 14px;
-}
-
-.live-stream .avatar img {
-  margin-right: 15px;
-}
-
-.live-stream span i {
-  color: #fff;
-  background-color: #ec6090;
-  border-radius: 50%;
-  font-size: 12px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  text-align: center;
-  line-height: 20px;
-  margin-right: 3px;
-}
-
-.live-stream span {
-  font-size: 14px;
-  color: #2b2b2b;
-}
-
-.live-stream .down-content h4 {
-  margin-top: 8px;
-  font-size: 20px;
-  font-weight: 700;
-  margin-left:20px;
-}
-
-.live-stream .main-button {
-  text-align: center;
-  margin-bottom: -53px;
-}
-
-.live-stream .number-overlay {
-  position: absolute;
-  top: 2px;  /* 조정하여 숫자의 수직 위치 변경 */
-  left: 5px; /* 조정하여 숫자의 수평 위치 변경 */
-  color:#2b2b2b; /* 숫자의 글자 색상 */
-  padding: 5px 10px; /* 숫자 주위의 여백 */
-  font-size: 30px; /* 숫자의 글꼴 크기 */
-}
-
-/*
----------------------------------------------
-영화상세페이지
----------------------------------------------
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
-
-html {
-  font-family: "Nunito", sans-serif;
-  color: rgb(34 34 34);
-  background: linear-gradient(rgb(255, 255, 255), rgb(250, 250, 250));
-}
-
-/*footer {
-  padding: 30px 10px;
-  text-align: center;
-}*/
-
-.movieDetailPage .container {
-    margin-top : 150px;
-  box-shadow: 1px 1px 8px 1px rgb(200 200 200);
-  border-radius: 30px;
 
 
-}
 
-.movieDetailPage .container > * {
-  padding: 40px 15px;
-}
-
-.movieDetailPage .article {
-    padding: 30px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.movieDetailPage .article > * {
-  padding: 15px 0;
-  margin: auto;
-  width: clamp(400px, 40%, 100%);
-  text-align: center;
-}
-
-.movieDetailPage .dot {
-  height: 15px;
-  width: 15px;
-  background-color: rgb(34 34 34);
-  border-radius: 50px;
-  display: inline-block;
-  margin: 15px;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.movieDetailPage .carousel,
-.movieDetailPage .achats {
-  width: clamp(200px, 100%, 400px);
-}
-
-.movieDetailPage .carousel > .img {
-  aspect-ratio: 0.7/1;
-  scroll-behavior: smooth;
-  overflow: hidden;
-  display: flex;
-}
-
-/*.movieDetailPage .carousel > .img > img {
-  transition: 0.5s;
-}*/
-
-.movieDetailPage .stars > * {
-  fill: #5397b4;
-  width: 20px;
-}
-
-.movieDetailPage .button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgb(34 34 34);
-  color: white;
-  font-size: 40px;
-  transition: 0.5s ease;
-}
-
-.movieDetailPage .button:hover {
-  transform: scale(1.1);
-  transition: 0.5s ease;
-}
-
-.movieDetailPage .tech {
-  border-top: 1px solid rgb(200 200 200);
-  display: block;
-  text-align: center;
-}
-
-.movieDetailPage .tech > .grid > svg {
-  height: 80px;
-  width: 80px;
-  fill: rgb(34 34 34);
-}
-
-.movieDetailPage .tech > .grid {
-  display: grid;
-  grid-gap: 30px;
-  grid: auto auto auto / auto auto auto auto;
-  width: clamp(100px, 100%, 700px);
-  margin: auto;
-  overflow: auto;
-}
-.movieDetailPage .tech > .grid > * {
-  margin: auto;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(200, 200, 200);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(60, 60, 60);
-  border-radius: 360px;
-}
-
-.movieDetailPage .description > p {
-  line-height: 30px;
-  text-align: left;
-}
-
-.movieDetailPage .description > h2 {
-   font-size: 40px;
-  line-height: 40px;
-  text-align: left;
-}
-
-.movieDetailPage a {
- display: inline-block;
-  padding: 10px 20px;       /* 버튼 내부 여백 설정 */
-  border-radius: 90px;      /* 버튼의 둥근 모서리 설정 */
-  background-color: #E0ECF8; /* 버튼 배경 색상 설정 (필요 시 변경) */
-  color: #2b2b2b;           /* 텍스트 색상 */
-  text-decoration: none;    /* 텍스트의 밑줄 제거 */
-  font-size: 16px;          /* 텍스트 크기 설정 (필요 시 변경) */
-  transition: 0.3s ease;    /* 전환 효과 추가 */
-  border: none;             /* 기본 테두리 제거 */
-  cursor: pointer;          /* 마우스 커서를 포인터로 변경 */
- /*border-radius: 90px;
-	color: #2b2b2b;
-  text-decoration: none !important;*/
-}
-.movieDetailPage a:hover {
-background-color: #0253AB; /* 호버 시 배경 색상 변경 (필요 시 변경) */
-  color: #ffffff;           /* 호버 시 텍스트 색상 변경 */
-/*border-radius: 90px;
-	color: #2b3b3b;*/
-}
 
 
 
@@ -1522,7 +1026,7 @@ Featured Banner Style
 --------------------------------------------- 
 */
 
-.feature-banner .thumb {
+/*.feature-banner .thumb {
   position: relative;
   max-height: 305px;
   overflow: hidden;
@@ -1542,239 +1046,8 @@ Featured Banner Style
   text-align: center;
   line-height: 46px;
   color: #ec6090;
-}
-
-/* 
----------------------------------------------
-Game Details Style (booking.html 구성)
---------------------------------------------- 
-*/
-
-/* 기본 스타일 */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* 전체 컨테이너 */
-.game-details .container {
-    display: flex;
-    height: 100vh;
-}
-
-/* 예매 순서 표시란 */
-.game-details .booking-procedure {
-    height: 200px;
-    background-color: #ffffff;
-    color: #2b2b2b; /* 텍스트 색상 */
-    font-size: 20px; /* 폰트 크기 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    border: 1px solid #2b2b2b; /* 실선 테두리 */
-    display: flex;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-        margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-        margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-
-}
-/* 메뉴 아이템 스타일 */
-.game-details .menu-item {
-    margin: 20px 0;
-    font-weight: bold;
-}
-
-/* 콘텐츠 영역 */
-.game-details .content {
-    display: block; /* 블록 요소로 설정 */
-    width: 100%;
-    margin-left : auto; /* 좌우 마진을 자동으로 설정하여 정렬 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    background-color: #FFFAFA;
-
-
-}
-
-
-/* 영화 선택 타이틀 */
-.game-details .selection-title {
-     height: 40px;
-    background-color: #444; /* 제목 박스 배경색 */
-    color: #ffffff; /* 텍스트 색상 */
-    font-size: 24px; /* 폰트 크기 */
-    margin-bottom: 0px; /* 영화 목록과의 간격 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-    margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-
-
-}
-
-/* 영화 목록 */
-.game-details .movie-list {
-    flex: 1; /* 남은 공간을 채우도록 설정 */
-    height: 758px;
-    color: #2b2b2b; /* 텍스트 색상 */
-    background-color: #E6E6E6;
-     border: 1px solid #2b2b2b; /* 실선 테두리 */
-     margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-     margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-}
-
-.game-details .movie-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-
-/* 지역 선택 타이틀 */
-.game-details .contry {
-    height: 40px;
-    background-color: #444;
-    color: #ffffff;
-    font-size: 24px;
-    margin-bottom: 0px;
-    text-align: center;
-    margin-bottom: -1px;
-    margin-right: -1px;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-
-}
-
-/* 극장지역 리스트 */
-.game-details .contry-list {
-    flex: 1; /* 남은 공간을 채우도록 설정 */
-    height: 758px;
-    background-color: #ffffff;
-    color: #2b2b2b; /* 텍스트 색상 */
-    border: 1px solid #2b2b2b; /* 실선 테두리 */
-    margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-    margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-}
-
-.highlight {
-    font-size: 24px; /* 원하는 크기로 설정 */
-    font-weight: bold; /* 필요한 경우 굵게 설정 */
-}
-/* 상영 날짜 정보 */
-.game-details .date {
-          height: 40px;
-          background-color: #444;
-          color: #ffffff;
-          font-size: 25px;
-          margin-bottom: 0px;
-          text-align: center;
-          margin-bottom: -1px;
-          margin-right: -1px;
-          justify-content: center; /* 가로 중앙 정렬 */
-          align-items: center; /* 세로 중앙 정렬 */
-}
-
- /* border-bottom: solid 2px #cfcdc3;*/
-
-/* 상영 날짜 리스트*/
-.game-details .date-list {
-
-    flex: 1; /* 남은 공간을 채우도록 설정 */
-    height: 758px;
-    background-color: #E6E6E6;
-    color: #2b2b2b; /* 텍스트 색상 */
-    border: 1px solid #2b2b2b; /* 실선 테두리 */
-        margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-        margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-}
-
-/* 상영 시간 타이틀 */
-.game-details .schedule {
-       height: 40px;
-       flex: 1; /* 남은 공간을 채우도 설정 */
-       color: #ffffff; /* 텍스트 색상 */
-       border: 1px solid #2b2b2b; /* 실선 테두리 */
-       margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-       margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-       justify-content: center; /* 가로 중앙 정렬 */
-       align-items: center; /* 세로 중앙 정렬 */
-}
-
-.theater ul li a span.time {
-    width: 49px;
-    height: 23px;
-    line-height: 23px;
-    border: 1px solid #2b2b2b;
-    background-image: none;
-    background-color: #fafafa;
-}
-
-
-/*상영 시간 리스트*/
-.game-details .schedule-list {
-    flex: 1; /* 남은 공간을 채우도록 설정 */
-       height: 758px;
-       background-color: #ffffff;
-       color: #2b2b2b; /* 텍스트 색상 */
-       border: 1px solid #2b2b2b; /* 실선 테두리 */
-       margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-       margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
-}
-
-.time {
-    width: 60%; /* 버튼의 너비를 100%로 설정 */
-    padding: 0px; /* 여백 추가 */
-    font-size: 16px; /* 글자 크기 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    background-color: #fafafa; /* 버튼 배경색 */
-    color: #2b2b2b; /* 글자 색상 */
-    border: none; /* 기본 테두리 제거 */
-    border-radius: 30px; /* 모서리 둥글게 */
-    cursor: pointer; /* 마우스 커서 포인터로 변경 */
-    transition: background-color 0.3s; /* 배경색 전환 효과 */
-    margin-bottom: 10px;
-}
-
-/* 버튼 호버 효과 */
-.time:hover {
-    background-color: #bfbfbf; /* 호버 시 배경색 변경 */
-}
-
-
-
-
-/* 예매 버튼*/
-.game-details .main-border-button {
-    margin-top: 5px;
-
-}
-.game-details .main-border-button a {
-     display: block; /* 블록 요소로 설정 */
-     background-color: #ffffff;
-     width: 20%; /* 너비 50% */
-     font-size: 20px;
-     margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 중앙 정렬 */
-     text-align: center; /* 텍스트 중앙 정렬 */
-      font-weight: bold;
-}
-
-/*.game-details .movie-list ul li {
-    margin: 10px 0;
-    cursor: pointer;
-    color: #2b2b2b;
-    font-size: 14px;
 }*/
 
-/*.game-details .movie-list ul li:first-child i {
-    color: yellow;
-}
-
-.game-details .movie-list ul li:last-child i {
-    color: #ec6090;
-}*/
-
-
-/*.game-details .schedule p {
-    color: #fff;
-}*/
 
 
 
@@ -1784,6 +1057,7 @@ Other Related Style
 --------------------------------------------- 
 */
 
+/*
 .other-games {
   border-radius: 23px;
   padding: 30px 30px 0px 30px;
@@ -1835,6 +1109,7 @@ Other Related Style
 .other-games ul li:last-child i {
   color: #ec6090;
 }
+*/
 
 /* 
 ---------------------------------------------
@@ -1901,124 +1176,7 @@ Top Streamers Style
   padding: 8px 20px;
 }
 
-/* 
----------------------------------------------
-Profile Style
---------------------------------------------- 
-*/
 
-.main-profile {
-  border-radius: 23px;
-  padding: 30px;
-  background-color:#fafafa;
-}
-
-.main-profile .main-info span {
-  font-size: 50px;
-  color: #2b2b2b;
-  display: inline-block;
-  font-weight: 400;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-}
-
-.main-profile .main-info h4 {
-  margin-bottom: 20px;
-}
-
-.main-profile .main-info .main-border-button {
-  margin-top: 25px;
-}
-
-.main-profile ul {
-  border-radius: 23px;
-  padding: 30px;
-  background-color: #E0ECF8;
-}
-
-.main-profile ul li {
-  width: 100%;
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #666;
-}
-
-.main-profile ul li span {
-  float: right;
-  font-weight: 500;
-  color: #ec6090;
-}
-
-.main-profile ul li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-.clips {
-  margin-top: 30px;
-  border-top: 2px solid #27292a;
-}
-
-.clips .heading-section {
-  margin-top: 30px;
-}
-
-.clips .item  {
-  /*border-radius: 23px;*/
-  padding: 30px 15px;
-  background-color: #FAFAFA;
-  margin-bottom: 30px;
-}
-
-.clips .list {
-  display: flex;
-  flex-direction : column;
-}
-
-
-.clips .item .thumb {
-  position: relative;
-  margin-bottom: 15px;
-
-}
-
-.clips .item .thumb a {
-  position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-23px, -23px);
-    width: 46px;
-    height: 46px;
-    background-color: #fff;
-    border-radius: 50%;
-    display: inline-block;
-    text-align: center;
-    line-height: 46px;
-    color: #ec6090;
-}
-
-.clips .item h4 {
-  font-size: 20px;
-  display: inline-block;
-}
-
-.clips .item span i {
-  color: #ec6090;
-}
-
-.clips .item span {
-  float: right;
-  color: #fff;
-  font-size: 14px;
-}
-
-.clips .main-button {
-  margin-top: 10px;
-  text-align: center;
-}
 
 /* 
 ---------------------------------------------
@@ -2042,7 +1200,7 @@ body {
   .main-banner h4 {
     font-size: 35px;
   }
-  .gaming-library .item ul li,
+  /*.gaming-library .item ul li,
   .gaming-library .item ul li:first-child,
   .gaming-library .item ul li:last-child {
     width: 100% !important;
@@ -2050,8 +1208,8 @@ body {
   }
   .gaming-library .item ul li {
     margin-top: 30px;
-  }
-  .top-downloaded ul li .download i {
+  }*/
+  /*.top-downloaded ul li .download i {
     top: 20px;
     width: 30px;
     height: 30px;
@@ -2079,7 +1237,7 @@ body {
   .most-popular .item .inner-item {
     margin-bottom: 20px;
   }
-}
+}*/
 
 @media (max-width: 992px) {
   .background-header {
@@ -2091,12 +1249,12 @@ body {
   .heading-section h4 {
     font-size: 20px;
   }
-  .gaming-library .item ul li {
+  /*.gaming-library .item ul li {
     width: 48% !important;
   }
   .gaming-library .item ul li:last-child {
     text-align: left;
-  }
+  }*/
   .featured-games {
     margin-bottom: 60px;
   }
