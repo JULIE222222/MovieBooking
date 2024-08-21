@@ -38,6 +38,7 @@
   border-radius: 23px;
   background-color: #ffffff;
   padding: 30px;
+  padding-top:66px;
 }
 
 .live-stream .item {
@@ -171,7 +172,7 @@ html {
 }*/
 
 .movieDetailPage .container {
-    margin-top : 150px;
+    margin-top : 215px;
   box-shadow: 1px 1px 8px 1px rgb(200 200 200);
   border-radius: 30px;
 
