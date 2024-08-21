@@ -1,4 +1,107 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Sign up</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/joinformsection.css">
+</head>
+
+<body>
+<!--<div th:replace="fragments/header ::header"></div>-->
+<main class="sign-up">
+    <div class="sign-up__container">
+        <div class="sign-up__content">
+            <header class="sign-up__header">
+                <h1 class="sign-up__title">
+                    회원가입
+                </h1>
+                <p class="sign-up__descr">
+                    Welcome, Please sign up your account.
+                </p>
+            </header>
+
+            <form class="sign-up__form form" role="form" action="/joinForm" th:object="${joinForm}" method="post" enctype="multipart/form-data">
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="id" name="id" placeholder="ID" type="text" /><label class="input__label" for="id">ID</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="password" name="password" placeholder="Password" type="password" /><label class="input__label" for="password">Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="name" name="name" placeholder="Name" type="text" /><label class="input__label" for="name">User Name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="email" name="email" placeholder="Email" required="" type="text" /><label class="input__label" for="email">Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="phone" name="phone" placeholder="Phone" required="" type="text" /><label class="input__label" for="Phone">Phone</label>
+                        </div>
+                    </div>
+                </div>
+
+<!--
+                <div class="form__row">
+                    <div class="input-checkbox">
+                        <div class="input-checkbox__container">
+                            <input checked="" class="input-checkbox__field" id="agree" required="" tabindex="0" type="checkbox" /><span class="input-checkbox__square"></span><label class="input-checkbox__label" for="agree">I agree with terms and conditions</label>
+                        </div>
+                    </div>
+                </div>
+-->
+
+                <div class="form__row">
+                    <div class="component component--primary form__button">
+                        <button class="btn btn--regular" id="sign-up-button" tabindex="0">Sign up</button>
+                    </div>
+                </div>
+
+                <div class="form__row sign-up__sign">
+                    Already have an account? &nbsp;<a class="link" href="#">Sign in.</a>
+                </div>
+
+                <!--<div class="form__row sign-up__terms">
+                    <a class="link" href="#">Term of use. Privacy policy</a>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>
+
+
+<!--
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -40,4 +143,4 @@
     </form>
 </div>
 </body>
-</html>
+</html>-->

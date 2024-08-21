@@ -35,16 +35,41 @@
     <div class="header"></div>
     <div class="container" style="padding-left: 10px;">
         <!-- 로고 영역 -->
-        <div class="row align-items-center" style="padding: 0px 50px;">
-            <div class="col-lg-12 text-start">
-                <a href="/" class="logo" style="display: flex; align-items: center;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="#0253ab" class="bi bi-film" viewBox="0 0 16 16">
+        <div class="row align-items-center" style="padding: 0px 50px; margin-top:5%;">
+            <div class="col-lg-12" style="display: flex; justify-content: center; align-items: center; position: relative;">
+                <!-- 로고 -->
+                <a href="/" class="logo" style="display: flex; align-items: center; position: absolute; left: 43%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#0253ab" class="bi bi-film" viewBox="0 0 16 16">
                         <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
                     </svg>
                     <span style="font-size: 36px; color: #383838; margin-left: 10px;">YUNBOX</span>
                 </a>
+
+                <!-- 회원가입 및 로그인 아이콘 그룹 -->
+                <div style="display: flex; align-items: center; position: absolute; right: 6px;">
+                    <!-- 회원가입 아이콘 -->
+                    <a href="/joinForm" class="join" style="display: flex; flex-direction: column; align-items: center; margin-right: 15px; text-decoration: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#2b2b2b" class="bi bi-person-add" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                            <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
+                        </svg>
+                        <span style="margin-top: 5px; color: #2b2b2b; font-size: 12px;">회원가입</span>
+                    </a>
+
+                    <!-- 로그인 아이콘 -->
+                    <a href="/login" class="login" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="#2b2b2b" class="bi bi-lock" viewBox="0 0 16 16">
+                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2M5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/>
+                        </svg>
+                        <span style="margin-top: 5px; color: #2b2b2b; font-size: 12px;">로그인</span>
+                    </a>
+                </div>
+
             </div>
         </div>
+        <hr>
+
+
 
         <!-- 메뉴 및 검색 영역 -->
         <div class="row align-items-center" style="padding: 0px 0px;">
@@ -64,7 +89,7 @@
                         <li><a href="/movie">영화</a></li>
                         <li><a href="/booking">예매</a></li>
                         <!--<li><a href="/event">이벤트</a></li>-->
-                        <li><a href="/profile">나의 영화박스 <img src="/images/profile-header.jpg" alt=""></a></li>
+                        <li><a href="/profile">나의 영화박스</a></li>
                     </ul>
 
                     <a class='menu-trigger'>

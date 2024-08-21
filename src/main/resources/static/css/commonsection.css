@@ -239,7 +239,7 @@ Header Style(공통)
 }
 
 .header-area .main-nav {
-  min-height: 80px;
+  min-height: 110px;
   width: 1200px;
   background: transparent;
   display: flex;
@@ -248,6 +248,7 @@ Header Style(공통)
   margin: 0 auto; /* 요소를 가로축 기준으로 중앙에 배치 */
   justify-content: space-between; /* 로고와 메뉴 사이 간격을 최대화 */
       align-items: center;
+
 }
 
 .header-area .nav {
@@ -265,6 +266,17 @@ Header Style(공통)
   padding: 0px;
   background-color: transparent;
 }
+
+.header-area hr {
+    margin: 1rem 0;
+    color: inherit;
+    border: 0;
+    border-top: 1px solid;
+    margin-top: 35px;
+    margin-bottom: -30px;
+    opacity: .25;
+}
+
 
 .header-area .main-nav #search {
   position: relative;
@@ -350,11 +362,11 @@ Header Style(공통)
   letter-spacing: .3px;
 }
 
-.header-area .main-nav .nav li:last-child a {
+/*.header-area .main-nav .nav li:last-child a {
   background-color: #E0ECF8;
   padding: 8px 10px 8px 20px;
   border-radius: 23px;
-}
+}*/
 
 .header-area .main-nav .nav li:last-child a img {
   max-width: 30px;
@@ -372,11 +384,11 @@ Header Style(공통)
   color: #0253ab !important;
 }
 
-.header-area .main-nav .nav li:last-child:hover a,
+/*.header-area .main-nav .nav li:last-child:hover a,
 .header-area .main-nav .nav li:last-child a.active {
   color: #fff !important;
   background-color: #0253ab !important;
-}
+}*/
 
 .background-header .main-nav .nav li:hover a,
 .background-header .main-nav .nav li a.active {
@@ -1261,9 +1273,7 @@ body {
   .header-area .main-nav #search {
     display: none;
   }
-  .heading-section h4 {
-    font-size: 20px;
-  }
+
   /*.gaming-library .item ul li {
     width: 48% !important;
   }

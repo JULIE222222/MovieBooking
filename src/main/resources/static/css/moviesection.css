@@ -3,6 +3,7 @@
 전체영화 리스트 페이지
 ---------------------------------------------
 */
+
 .live-stream a {
   font-size: 14px;
   color: #0253ab;
@@ -139,7 +140,7 @@
 }
 
 .live-stream h3 {
-  margin-top: 8px;
+  margin-top: 30px;
   font-size: 40px;
   font-weight: 700;
   text-align: center;
