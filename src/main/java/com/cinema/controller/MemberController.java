@@ -48,4 +48,21 @@ public class MemberController {
         model.addAttribute("joinForm", new Member());
         return "members/joinForm";
     }
+
+   /* @GetMapping("/loginForm")
+    public String loginForm (){
+        return "members/loginForm";
+    }
+
+    @PostMapping("/loginForm")
+    public String login(@ModelAttribute Member member, HttpSession session) {
+        Member loginResult = memberService.login(member);
+
+        if (loginResult != null) {
+            session.setAttribute("id", loginResult.getid());
+            return "/";
+        } else {
+            return "members/loginForm";
+        }
+    }*/
 }
