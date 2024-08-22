@@ -12,11 +12,10 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-
         http
                 .authorizeHttpRequests((auth) -> auth
-                        /*상단부터 적용이 되기때문에 순서를 잘 정리해놔야함*/
-                        .requestMatchers("/", "/loginForm").permitAll()
+                        .requestMatchers("/", "/loginForm", "/joinForm","/movie","/movieDetailPage","/movieDetailPage").permitAll()
+                        .requestMatchers("/css/**", "/images/**", "/js/**", "/jquery/**", "/webfonts/**").permitAll()
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")
                         .anyRequest().authenticated()
@@ -25,3 +24,5 @@ public class SecurityConfig {
         return http.build();
     }
 }
+
+//.requestMatchers는 상단부터 적용이 되기때문에 순서를 잘 정리해놔야함
