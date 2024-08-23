@@ -57,7 +57,8 @@ public class MemberController {
 
     //로그인 기능
     @GetMapping("/loginForm")
-    public String loginForm (){
+    public String loginForm (Member member, Model model){
+
         return "members/loginForm";
     }
 

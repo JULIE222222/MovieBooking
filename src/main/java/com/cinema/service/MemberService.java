@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -37,7 +38,7 @@ public class MemberService {
 
     //중복회원 검증
     private void validateDuplicateMember(Member member) {
-        Member findMember = memberRepository.findById(member.getId());
+        Optional<Member> findMember = memberRepository.findById(member.getId());
 
         if (findMember != null) {
             throw new IllegalStateException("이미 가입된 회원입니다.");
@@ -46,7 +47,9 @@ public class MemberService {
 
 
 
-    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+
+
+/*    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         Member member = memberRepository.findById(id);
 
         if (member == null) {
@@ -65,5 +68,5 @@ public class MemberService {
                 .password(member.getPassword())
                 .authorities(authorities)
                 .build();
-    }
+    }*/
     }

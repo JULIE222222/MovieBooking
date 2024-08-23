@@ -8,9 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface MemberRepository extends JpaRepository <Member,Long> {
-
-    Member findById(String id);
-
-
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    Optional<Member> findById(String id);  // Optional로 변경
 }
