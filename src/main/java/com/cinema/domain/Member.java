@@ -19,6 +19,6 @@ public class Member {
     private String name;
     private String email;
     private String phone;
-
+    private String role; //사용자,관리자 지정
 
 }

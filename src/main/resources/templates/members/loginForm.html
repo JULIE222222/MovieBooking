@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>MovieBooking</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/css/fontawesome.css">
+    <link rel="stylesheet" href="/css/joinformsection.css">
+    <link rel="stylesheet" href="/css/owl.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/css/commonsection.css">
+</head>
+
+<body>
+<div th:replace="fragments/header ::header"></div>
+
+<main class="sign-up">
+    <div class="sign-up__container">
+        <div class="sign-up__content">
+
+            <header class="sign-up__header">
+                <h1 class="sign-up__title">로그인</h1>
+            </header>
+
+            <form class="sign-up__form form" role="form" action="/loginForm" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="id" name="id" placeholder="ID" type="text" />
+                            <label class="input__label">ID</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="input">
+                        <div class="input__container">
+                            <input class="input__field" id="password" name="password" placeholder="Password" type="password" />
+                            <label class="input__label">Password</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="component component--primary form__button">
+                        <p th:if="${error}" class="error" th:text="${error}"></p>
+                        <button class="btn btn--regular" id="sign-up-button" tabindex="0">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>

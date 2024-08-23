@@ -1,4 +1,4 @@
-package com.cinema.domain.form;
+package com.cinema.form;
 
 import org.springframework.web.multipart.MultipartFile;
 

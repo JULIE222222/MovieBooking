@@ -20,7 +20,7 @@
 
             <div class="row">
             <div class="col-lg-12">
-            <div class="back-button" style="position: absolute; right: 470px; top: 134px;">
+            <div class="back-button" style="position: absolute; ">
                 <a href="/" style="display: flex; align-items: center; text-decoration: none;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#434176" class="bi bi-unindent" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M13 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H12.5A.5.5 0 0 0 13 8"/>
@@ -33,7 +33,6 @@
             </div>
         </div>
 
-
             <header class="sign-up__header">
                 <h1 class="sign-up__title">
                     회원가입
@@ -44,11 +43,12 @@
             </header>
 
             <form class="sign-up__form form" role="form" action="/joinForm" th:object="${joinForm}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
                 <div class="form__row">
                     <div class="input">
                         <div class="input__container">
-                            <input class="input__field" id="id" name="id" placeholder="ID" type="text" /><label class="input__label" for="id">ID</label>
+                            <input class="input__field" th:field="*{id}" id="id" name="id" placeholder="ID" type="text" /><label class="input__label" for="id">ID</label>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="input">
                         <div class="input__container">
 
-                            <input class="input__field" id="password" name="password" placeholder="Password" type="password" /><label class="input__label" for="password">Password</label>
+                            <input class="input__field" th:field="*{password}" id="password" name="password" placeholder="Password" type="password" /><label class="input__label" for="password">Password</label>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                 <div class="form__row">
                     <div class="input">
                         <div class="input__container">
-                            <input class="input__field" id="name" name="name" placeholder="Name" type="text" /><label class="input__label" for="name">User Name</label>
+                            <input class="input__field" th:field="*{name}" id="name" name="name" placeholder="Name" type="text" /><label class="input__label" for="name">User Name</label>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="form__row">
                     <div class="input">
                         <div class="input__container">
-                            <input class="input__field" id="email" name="email" placeholder="Email" required="" type="text" /><label class="input__label" for="email">Email</label>
+                            <input class="input__field" th:field="*{email}" id="email" name="email" placeholder="Email" required="" type="text" /><label class="input__label" for="email">Email</label>
                         </div>
                     </div>
                 </div>
@@ -81,12 +81,12 @@
                 <div class="form__row">
                     <div class="input">
                         <div class="input__container">
-                            <input class="input__field" id="phone" name="phone" placeholder="Phone" required="" type="text" /><label class="input__label" for="Phone">Phone</label>
+                            <input class="input__field" th:field="*{phone}" id="phone" name="phone" placeholder="Phone" required="" type="text" /><label class="input__label" for="Phone">Phone</label>
                         </div>
                     </div>
                 </div>
 
-<!--
+<!-- 동의하는 란
                 <div class="form__row">
                     <div class="input-checkbox">
                         <div class="input-checkbox__container">
@@ -106,9 +106,6 @@
                     Already have an account? &nbsp;<a class="link" href="/loginForm">Sign in.</a>
                 </div>
 
-                <!--<div class="form__row sign-up__terms">
-                    <a class="link" href="#">Term of use. Privacy policy</a>
-                </div>-->
             </form>
         </div>
     </div>

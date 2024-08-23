@@ -243,7 +243,33 @@ input:-webkit-autofill {
   justify-content: center; /* 가로 중앙 정렬 */
   align-items: center; /* 세로 중앙 정렬 */
   height: 100vh; /* 화면 전체 높이 */
+  position: relative; /* 자식 요소의 절대 위치 설정을 위한 부모 요소 설정 */
 }
+
+.back-button {
+    position: absolute;
+    top: 0px; /* 상단에서의 거리 */
+    left: 590px; /* 왼쪽에서의 거리 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.back-button__text {
+    color: #434176;
+    margin-left: 8px;
+}
+
+
+
+
+
 .sign-up__image, .sign-up__content {
   flex: 1;
 }
@@ -266,13 +292,13 @@ input:-webkit-autofill {
   }
 }
 .sign-up__content {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  padding: 5vh 56px 5vh; /* 패딩 크기 조정 */
-  max-width: 1000px; /* 최대 너비 설정 */
-  background-color: #fafafa;
-  border-radius: 18px;
+   position: relative; /* 자식 요소의 절대 위치 설정을 위한 부모 요소 설정 */
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fafafa;
+      max-width: 700px; /* 최대 너비 설정 */
+      width: 100%;
 }
 .sign-up__header {
   margin-bottom: 48px;
