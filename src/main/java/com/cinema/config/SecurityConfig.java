@@ -40,6 +40,10 @@ public class SecurityConfig {
                                 .logoutSuccessUrl("/")
                                 .invalidateHttpSession(true)
                                 .deleteCookies("JSESSIONID")
+                )
+
+                .exceptionHandling(ex -> ex
+                        .accessDeniedPage("/error") // 예외 처리
                 );
 
 

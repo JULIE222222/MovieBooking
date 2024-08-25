@@ -32,22 +32,18 @@ public class MemberService {
         // 비밀번호를 암호화하여 저장
         member.setPassword(passwordEncoder.encode(member.getPassword()));
         // 데이터 저장
-        memberRepository.save(member);
-        return member.getUserID();
+        Member savedMember = memberRepository.save(member);
+        return savedMember.getUserID();
     }
 
     //중복회원 검증
     private void validateDuplicateMember(Member member) {
         Optional<Member> findMember = memberRepository.findById(member.getId());
 
-        if (findMember != null) {
+        if (findMember.isPresent()) {
             throw new IllegalStateException("이미 가입된 회원입니다.");
         }
     }
-
-
-
-
 
 /*    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         Member member = memberRepository.findById(id);

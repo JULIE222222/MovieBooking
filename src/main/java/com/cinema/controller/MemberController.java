@@ -2,7 +2,11 @@ package com.cinema.controller;
 
 import com.cinema.domain.Member;
 import com.cinema.service.MemberService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +28,7 @@ public class MemberController {
             @RequestParam("name") String name,
             @RequestParam("email") String email,
             @RequestParam("phone") String phone,
-           /* @RequestParam("role") String role,  -> 가져올값이 없기때문에 작성x */
+            /* @RequestParam("role") String role,  -> 가져올값이 없기때문에 작성x */
             Model model) {
 
         try {
@@ -34,7 +38,7 @@ public class MemberController {
             member.setName(name);
             member.setEmail(email);
             member.setPhone(phone);
-           /* member.setRole("ROLE_USER");*/
+            /* member.setRole("ROLE_USER");*/
 
             memberService.join(member);
 
@@ -57,7 +61,7 @@ public class MemberController {
 
     //로그인 기능
     @GetMapping("/loginForm")
-    public String loginForm (Member member, Model model){
+    public String loginForm(Member member, Model model) {
 
         return "members/loginForm";
     }
@@ -78,4 +82,16 @@ public class MemberController {
             return "members/loginForm";
         }
     }*/
+
+    //로그아웃 기능
+    @GetMapping("/members/logout")
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
+        return "redirect:/";
+    }
+
+
+
+
+
 }
