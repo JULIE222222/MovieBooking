@@ -12,7 +12,7 @@
     width: 100%;
     margin-left: auto;
     text-align: center;
-    background-color: #FFFAFA;
+/*    background-color: #FFFAFA;*/
 }
 
 
@@ -132,7 +132,7 @@ body {
 
 .screen {
   background-color: #fff;
-  height: 70px;
+  height: 75px;
   width: 70%;
   margin: 15px 177px;
   transform: rotateX(-45deg);
