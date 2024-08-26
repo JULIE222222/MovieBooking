@@ -44,6 +44,6 @@ public class UserDetailService implements UserDetailsService {
         }
 
         // 4. UserDetails 객체 반환
-        return new User(member.getEmail(), member.getPassword(), authorities);
+        return new User(member.getId(), member.getPassword(), authorities);
     }
 }

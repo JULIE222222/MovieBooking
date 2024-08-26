@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findById(String id);  // Optional로 변경
+    Optional<Member> findByName(String name); // 이름으로 조회하는 메서드 추가
 }

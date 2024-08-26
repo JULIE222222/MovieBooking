@@ -47,6 +47,10 @@ public class MemberService {
         }
     }
 
+    public Member findById(String id) {
+        return memberRepository.findById(id).orElse(null);
+    }
+
 /*    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
         Member member = memberRepository.findById(id);
 

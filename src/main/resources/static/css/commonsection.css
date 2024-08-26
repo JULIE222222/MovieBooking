@@ -349,7 +349,7 @@ Header Style(공통)
   display: block;
   font-weight: 400;
   font-size: 14px;
-  text-transform: capitalize;
+  text-transform: none;
   color: #666;
   -webkit-transition: all 0.3s ease 0s;
   -moz-transition: all 0.3s ease 0s;

@@ -21,12 +21,4 @@ public class HomeController {
         return "event";
     }
 
-    @GetMapping("/profile")
-    public String profile(){
-        return "profile";
-    }
-
-
-
-
 }

@@ -17,7 +17,7 @@ Profile Style
   color: #2b2b2b;
   display: inline-block;
   font-weight: 400;
-  text-transform: capitalize;
+  text-transform: none;
   letter-spacing: 0.5px;
 }
 

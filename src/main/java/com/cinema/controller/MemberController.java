@@ -39,7 +39,6 @@ public class MemberController {
             member.setEmail(email);
             member.setPhone(phone);
             /* member.setRole("ROLE_USER");*/
-
             memberService.join(member);
 
             model.addAttribute("message", "회원가입이 완료되었습니다.");
@@ -63,35 +62,14 @@ public class MemberController {
     @GetMapping("/loginForm")
     public String loginForm(Member member, Model model) {
 
+        model.addAttribute("loginForm", member);
         return "members/loginForm";
     }
 
-
-    /*@PostMapping("/loginForm")
-    public String login(@RequestParam("id") String id, @RequestParam("password") String password, Model model) {
-        try {
-            Member member = memberService.login(id, password);
-            if (member != null) {
-                return "redirect:/";
-            } else {
-                model.addAttribute("error", "Invalid credentials");
-                return "members/loginForm";
-            }
-        } catch (Exception e) {
-            model.addAttribute("error", "An error occurred");
-            return "members/loginForm";
-        }
-    }*/
-
-    //로그아웃 기능
+   //로그아웃 기능
     @GetMapping("/members/logout")
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
         return "redirect:/";
     }
-
-
-
-
-
 }
