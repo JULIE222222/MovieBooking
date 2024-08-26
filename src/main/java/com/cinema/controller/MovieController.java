@@ -119,6 +119,6 @@ public class MovieController {
          //Id로 영화 정보가져오기
         Movie movie = movieService.findById(movieId);
         model.addAttribute("movie",movie);
-        return "movieDetailPage";
+        return "movies/movieDetailPage";
     }
 }

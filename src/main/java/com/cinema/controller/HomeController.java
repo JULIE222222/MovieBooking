@@ -11,10 +11,12 @@ public class HomeController {
         return "index";
     }*/
 
+/*
     @GetMapping("/booking")
     public String booking(){
         return "booking";
     }
+*/
 
     @GetMapping("/event")
     public String event(){
