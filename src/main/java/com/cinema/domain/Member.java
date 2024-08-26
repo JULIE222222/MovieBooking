@@ -19,6 +19,8 @@ public class Member {
     private String name;
     private String email;
     private String phone;
+
+    @Column(name = "role", nullable = false)
     private String role; //사용자,관리자 지정
 
 }

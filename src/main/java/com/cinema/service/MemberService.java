@@ -26,11 +26,13 @@ public class MemberService {
 
     //회원가입
     @Transactional
-    public Long join(Member member){
+    public Long join(Member member) {
         // 중복회원 검증 메서드
         validateDuplicateMember(member);
         // 비밀번호를 암호화하여 저장
         member.setPassword(passwordEncoder.encode(member.getPassword()));
+        // 사용자 역할 설정 (기본적으로 USER로 설정)
+        member.setRole("USER");
         // 데이터 저장
         Member savedMember = memberRepository.save(member);
         return savedMember.getUserID();
