@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowTime</title>
+</head>
+<body>
+<h1>영화 상영시간정보 등록 페이지</h1>
+<hr/>
+
+<form role ="form" action="/showtimeInfoForm" th:object="${showtimeInfoForm}" method="post" enctype="multipart/form-data">
+
+    <div class = "form-group">
+        <label>상영관: </label>
+        <input type="number" th:field="*{screenNum}" class="form-control" placeholder="상영관을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>시작시간: </label>
+        <input type="text" th:field="*{startTime}" class="form-control" placeholder="시작시간을 입력하세요"><br/>
+    </div>
+
+    <div class = "form-group">
+        <label>종료시간: </label>
+        <input type="text" th:field="*{endTime}" class="form-control" placeholder="종료시간을 입력하세요"><br/>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">전송</button>
+
+</form>
+
+</body>
+</html>

@@ -23,4 +23,10 @@ public class HomeController {
         return "event";
     }
 
+
+    @GetMapping("/showtimeInfoForm")
+    public String ShowtimeInfo(){
+        return "uploadInfo/showtimeInfoForm";
+    }
+
 }

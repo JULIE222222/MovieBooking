@@ -47,8 +47,8 @@ function generateDatesForMonths(year, month) {
     for (let i = 1; i <= lastDay; i++) {
         const date = new Date(year, month, i);
 
-        // 현재 날짜보다 이전일 경우 추가하지 않음
-        if (date >= today) {
+        // 현재 날짜와 이후 날짜만 추가
+        if (date >= new Date(today.setHours(0, 0, 0, 0))) {
             const button = document.createElement("button");
             const spanWeekOfDay = document.createElement("span");
             const spanDay = document.createElement("span");
@@ -135,3 +135,5 @@ const nextButton = document.createElement('button');
 nextButton.innerText = '다음';
 nextButton.addEventListener('click', moveToNextMonth);
 document.body.insertBefore(nextButton, document.querySelector('.container').nextSibling);
+
+//

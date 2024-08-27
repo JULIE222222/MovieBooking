@@ -17,7 +17,7 @@
 
 .game-details .movie-seat {
     flex: 1; /* 남은 공간을 채우도록 설정 */
-    height: 758px;
+    height: 580px;
     padding: 50px;
     color: #2b2b2b; /* 텍스트 색상 */
     background-color: #E6E6E6;
@@ -44,7 +44,7 @@ body {
 }
 
 .movie-container {
-  margin-top: 50px;
+  margin-top: -38px;
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center;     /* 수직 가운데 정렬 */
@@ -156,3 +156,17 @@ p.text {
 p.text span {
   color: #6feaf6;
 }
+ .select-box2 {
+            width: 1393px;
+            height: 150px;
+            padding: 20px;
+            margin-bottom: 20px;
+            /*border-radius: 10px;*/
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+             border: 1px solid #2b2b2b;
+             margin-left: -116px /* 왼쪽으로 정렬 */
+        }
+
