@@ -16,9 +16,13 @@ public class ShowTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "showtime_id")
     private Long showTimeID;
-    private int screenNum;
+    private Long screenNum;
     private LocalTime startTime;
     private LocalTime endTime;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id") //외래키 컬럼 이름
+    private Movie movie;
 
 }
 
