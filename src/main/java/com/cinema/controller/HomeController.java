@@ -10,8 +10,8 @@ public class HomeController {
     public String home(){
         return "index";
     }*/
-
 /*
+
     @GetMapping("/booking")
     public String booking(){
         return "booking";
