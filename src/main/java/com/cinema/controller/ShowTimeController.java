@@ -3,6 +3,7 @@ package com.cinema.controller;
 import com.cinema.domain.Movie;
 import com.cinema.domain.ShowTime;
 import com.cinema.service.MovieService;
+import com.cinema.service.ShowTimeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +18,7 @@ import java.util.List;
 public class ShowTimeController {
 
     private final MovieService movieService;
+    private final ShowTimeService showTimeService;
 
     @GetMapping("/showtimeInfoForm")
     public String showtimeInfoForm(Model model){
@@ -28,7 +30,8 @@ public class ShowTimeController {
 
     @PostMapping("/showtimeInfoForm")
     public String submitShowtimeInfo(@ModelAttribute ShowTime showTime){
-        return "redirect:/uploadInfo/showtimeInfoForm";
+        showTimeService.saveShowTime(showTime);
+        return "redirect:/showtimeInfoForm";
     }
 
 }

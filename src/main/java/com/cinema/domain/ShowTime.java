@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "show_time")
+@Table(name = "showtime")
 public class ShowTime {
 
     @Id
@@ -17,6 +18,7 @@ public class ShowTime {
     @Column(name = "showtime_id")
     private Long showTimeID;
     private Long screenNum;
+    private LocalDate showDate;
     private LocalTime startTime;
     private LocalTime endTime;
 
