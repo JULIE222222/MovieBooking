@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -18,4 +20,7 @@ public class ShowTimeService {
     }
 
 
+    public List<ShowTime> getAllShowTimes() {
+        return showTimeRepository.findAll();
+    }
 }

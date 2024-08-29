@@ -59,7 +59,6 @@ function renderTimeList() {
     const timeList = document.querySelector('.time-list');
     timeList.innerHTML = '';
 
-    var times = ["10:00", "12:00", "14:00"];
     times.forEach(function (time) {
         var li = document.createElement('li');
         li.textContent = time;
