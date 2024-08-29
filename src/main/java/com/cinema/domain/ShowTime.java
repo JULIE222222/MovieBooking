@@ -18,7 +18,10 @@ public class ShowTime {
     @Column(name = "showtime_id")
     private Long showTimeID;
     private Long screenNum;
-    private LocalDate showDate;
+
+    @Column(name = "show_date") // 데이터베이스 컬럼과 매핑
+    private String showDate;
+
     private LocalTime startTime;
     private LocalTime endTime;
 
@@ -27,4 +30,5 @@ public class ShowTime {
     private Movie movie;
 
 }
+
 

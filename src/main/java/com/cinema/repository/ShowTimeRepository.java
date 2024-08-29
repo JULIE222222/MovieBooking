@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface ShowTimeRepository extends JpaRepository<ShowTime, Long> {
 
-    List<ShowTime> findByScreenNum(int screenNum);
+    List<ShowTime> findByScreenNum(Long screenNum);
 
+    List<ShowTime> findByShowDate(String showDate);
 }

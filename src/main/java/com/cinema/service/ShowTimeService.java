@@ -23,4 +23,8 @@ public class ShowTimeService {
     public List<ShowTime> getAllShowTimes() {
         return showTimeRepository.findAll();
     }
+
+    public List<ShowTime> getShowTimesByDate(String showDate) {
+        return showTimeRepository.findByShowDate(showDate);
+    }
 }

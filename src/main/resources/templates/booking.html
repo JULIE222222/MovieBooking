@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="/css/animate.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="/css/commonsection.css">
-    <link rel="stylesheet" href="/css/clickbutton.css">
-    <link rel="stylesheet" href="/css/bookingselect.css">
+<!--    <link rel="stylesheet" href="/css/clickbutton.css">-->
+    <link rel="stylesheet" href="/css/bookingsection.css">
 
 </head>
 
@@ -79,8 +79,8 @@
                                         <div class="selection-title">상영시간</div>
                                         <ul class="time-list"> <!-- 상영 시간을 표시할 리스트 -->
                                             <li th:each="showTimes : ${showTimes}">
-                                            <span th:text="'상영관' + ${showTimes.screenNum}"></span>
-                                            <button th:text="${showTimes.startTime}" onclick="selectTime(${showTime.id})"></button>
+                                            <span th:text="'상영관' + ${showTimes.screenNum}"></span><br/>
+                                            <button th:text="${showTimes.startTime+'~'}" onclick="selectTime(${showTime.id})"></button>
                                             </li>
                                         </ul>
                                     </div>
@@ -119,8 +119,6 @@
 <script src="/js/tabs.js"></script>
 <script src="/js/popup.js"></script>
 <script src="/js/custom.js"></script>
-<!--<script src="/js/bookingdate.js"></script>-->
-<script src="/js/click-button.js"></script>
 <script src="/js/bookingselect.js"></script>
 
 </body>
