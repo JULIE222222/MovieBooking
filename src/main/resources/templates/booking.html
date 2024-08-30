@@ -80,13 +80,13 @@
                                         <ul class="time-list"> <!-- 상영 시간을 표시할 리스트 -->
                                             <li th:each="showTimes : ${showTimes}">
                                             <span th:text="'상영관' + ${showTimes.screenNum}"></span><br/>
+
                                             <button th:text="${showTimes.startTime+'~'}" onclick="selectTime(${showTime.id})"></button>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 

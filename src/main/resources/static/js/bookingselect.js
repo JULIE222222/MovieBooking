@@ -111,13 +111,13 @@ function selectTime(id, startTime) {
 // 상영 시간 목록을 표시하기 위해 서버에서 데이터를 가져옵니다.
 function fetchShowTimes(date) {
     fetch(`/getShowTimes?date=${formatDate(date)}`) // 예시 URL (서버에서 날짜에 해당하는 상영 시간 목록을 반환해야 함)
-        .then(response => {
+       /* .then(response => {
             if (!response.ok) {
                 // 서버 응답 상태가 200 OK가 아닐 경우 오류 처리
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             return response.json(); // JSON 응답 파싱
-        })
+        })*/
         .then(showTimes => {
             renderTimeList(showTimes); // 상영 시간 목록을 렌더링합니다.
         })
@@ -156,7 +156,7 @@ function generateDatesForMonths(year, month) {
     const firstDay = new Date(year, month, 1).getDay(); // 해당 월의 첫 번째 날의 요일
 
     // 월과 연도를 상단에 표시
-    monthYearDisplay.innerText = `${year}년 ${month + 1}월`;
+    monthYearDisplay.innerText = `${year}년`;
 
     // 요일을 맞추기 위해 빈 날짜 추가
     for (let i = 0; i < firstDay; i++) {

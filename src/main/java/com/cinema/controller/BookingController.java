@@ -24,26 +24,21 @@ public class BookingController {
     public String getAllShowTimesAndMovies(Model model) {
         // 영화 목록 가져오기
         List<Movie> movies = movieService.getAllMovies();
-/*        // 쇼타임 목록 가져오기
-        List<ShowTime> showTimes = showTimeService.getAllShowTimes();*/
 
         // 모델에 영화 목록 추가
         model.addAttribute("movies", movies);
- /*       // 모델에 쇼타임 목록 추가
-        model.addAttribute("showTimes", showTimes);*/
 
         // 콘솔 출력 (디버깅 용도)
         System.out.println(movies);
-    /*    System.out.println(showTimes);*/
 
         // booking.html로 이동
         return "booking";
     }
 
-    @GetMapping("/getShowTimes")
+ /*   @GetMapping("/getShowTimes")
     public List<ShowTime> getShowTimes(@RequestParam("date") String date) {
         return showTimeService.getShowTimesByDate(date); // 수정된 메서드 호출
-    }
+    }*/
 
     //영화관 좌석 선택하기
     @GetMapping("/selectSeat")

@@ -1,5 +1,6 @@
 package com.cinema.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class ShowTime {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movie_id") //외래키 컬럼 이름
+    @JsonIgnore
     private Movie movie;
 
 }
