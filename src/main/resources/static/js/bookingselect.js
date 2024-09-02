@@ -1,3 +1,4 @@
+
 // 전역 변수 및 요소 참조
 var s_selbox = [["강남", "분당", "용인"]]; // 극장 목록 배열
 const reserveDate = document.querySelector(".reserve-date"); // 날짜 버튼을 표시할 요소
@@ -22,14 +23,22 @@ function init() {
     renderTheaterList(); // 페이지 로드 시 극장 목록 자동 렌더링
 }
 
+// ************************************************************************
 // 영화 선택 후 극장 목록을 유지하도록 수정된 함수
-function selectMovie(movieId) {
+function selectMovie(element) {
+    // 클릭한 버튼에서 data-movie-id 값을 가져오기
+    var movieId = element.getAttribute('data-movie-id'); // movieId를 버튼의 data 속성에서 가져옴
     console.log("Selected Movie ID:", movieId); // 선택된 영화의 ID를 콘솔에 출력
-    resetSelections(); // 이전 선택 상태를 초기화
+
+    resetSelections(movieId); // 이전 선택 상태를 초기화하면서 선택된 movieId 전달
 }
 
 // 선택 초기화 함수 (극장과 시간 목록을 비움)
-function resetSelections() {
+function resetSelections(movieId) {
+    // movieID 값을 서버로 전송하거나 다른 작업 수행
+    //console.log("선택한 영화 ID: " + movieId);
+    // 예시: AJAX를 통해 서버로 전송하거나 폼에 추가하여 제출
+
     // 시간 목록만 초기화 (극장 목록은 유지)
     const timeList = document.querySelector('.time-list');
     if (timeList) timeList.innerHTML = ''; // 시간 목록 비우기
@@ -44,7 +53,7 @@ function renderTheaterList() {
 
     // 's_selbox[0]' 배열의 각 극장 이름에 대해 반복
     s_selbox[0].forEach(function (place) {
-        const li = document.createElement('li'); // 새로운 <li> 요소 생성
+        const li = document.createElement('li'); // 새로운 <li> 요소 생성0`0
         li.textContent = place; // 극장 이름을 텍스트로 설정
         li.onclick = function () {
             selectTheater(place); // 클릭 시 selectTheater 함수 호출

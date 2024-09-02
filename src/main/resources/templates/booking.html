@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="/css/bookingsection.css">
     <link rel="stylesheet" href="/css/owl.css">
     <link rel="stylesheet" href="/css/animate.css">
+<!--
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+-->
     <link rel="stylesheet" href="/css/commonsection.css">
 <!--    <link rel="stylesheet" href="/css/clickbutton.css">-->
     <link rel="stylesheet" href="/css/bookingsection.css">
@@ -46,7 +48,8 @@
                                                 <li th:each="movie : ${movies}">
                                                     <div style="margin-right: 10px;">
                                                         <span th:text="${movie.rating}" style="color: #2b2b2b; font-size: 16px;"></span>
-                                                        <button th:text="${movie.title}" onclick="selectMovie(1)" style="color: #2b2b2b; font-size: 16px;"></button>
+                                                        <button th:text="${movie.title}" onclick="selectMovie(this)" th:data-movie-id="${movie.movieID}" style="color: #2b2b2b; font-size: 16px;"></button>
+                                                       <!-- <input type="hidden" id="movieID" class="movieID" name="movieID" th:value="${movie.movieID}">-->
                                                     </div>
                                                 </li>
                                             </ul>
@@ -57,7 +60,7 @@
                                     <div class="col-md-2" >
                                         <div class="contry">극장</div>
                                         <div class="contry-list">
-                                        <ul class="theater-list" style="margin-top: 30px; cursor: pointer; "> <!-- 극장 목록을 표시할 리스트 --> </ul>
+                                        <ul class="theater-list" style="margin-top: 30px; cursor: pointer; "></ul>
                                         </div>
                                     </div>
 
