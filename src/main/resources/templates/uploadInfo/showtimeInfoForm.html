@@ -7,35 +7,34 @@
 </head>
 
 <body>
-<h1>영화 상영시간정보 등록 페이지</h1>
+<h1>영화 상영시간 정보 등록 페이지</h1>
 <hr/>
 
-<form role ="form" action="/showtimeInfoForm" th:object="${showTime}" method="post" enctype="multipart/form-data">
-
-    <div class = "form-group">
+<form role="form" action="/showtime/showtimeInfoForm" th:object="${showTime}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
         <label>상영영화: </label>
-    <select th:field="*{movie}" class="form-control">
-        <option value="" disabled selected>영화를 선택하세요</option>
-        <option th:each="movie : ${movies}" th:value="${movie.movieID}" th:text="${movie.title}"></option>
-    </select><br/>
+        <select th:field="*{movie}" class="form-control">
+            <option value="" disabled selected>영화를 선택하세요</option>
+            <option th:each="movie : ${movies}" th:value="${movie.movieID}" th:text="${movie.title}"></option>
+        </select><br/>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <label>상영관: </label>
         <input type="number" th:field="*{screenNum}" class="form-control" placeholder="상영관을 입력하세요"><br/>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <label>상영날짜: </label>
         <input type="date" th:field="*{showDate}" class="form-control" placeholder="상영날짜를 선택하세요"><br/>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <label>시작시간: </label>
         <input type="time" th:field="*{startTime}" class="form-control" placeholder="시작시간을 선택하세요"><br/>
     </div>
 
-    <div class = "form-group">
+    <div class="form-group">
         <label>종료시간: </label>
         <input type="time" th:field="*{endTime}" class="form-control" placeholder="종료시간을 선택하세요"><br/>
     </div>

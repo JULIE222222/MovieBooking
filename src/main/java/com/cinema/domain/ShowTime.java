@@ -20,6 +20,8 @@ public class ShowTime {
     private Long showTimeID;
     private Long screenNum;
 
+    private String location;
+
     @Column(name = "show_date") // 데이터베이스 컬럼과 매핑
     private String showDate;
 

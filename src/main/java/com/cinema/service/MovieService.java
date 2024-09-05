@@ -1,6 +1,7 @@
 package com.cinema.service;
 
 import com.cinema.domain.Movie;
+import com.cinema.domain.ShowTime;
 import com.cinema.repository.MovieRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

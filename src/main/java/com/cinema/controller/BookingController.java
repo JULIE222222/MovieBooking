@@ -24,13 +24,10 @@ public class BookingController {
     public String getAllShowTimesAndMovies(Model model) {
         // 영화 목록 가져오기
         List<Movie> movies = movieService.getAllMovies();
-
         // 모델에 영화 목록 추가
         model.addAttribute("movies", movies);
-
         // 콘솔 출력 (디버깅 용도)
         System.out.println(movies);
-
         // booking.html로 이동
         return "booking";
     }

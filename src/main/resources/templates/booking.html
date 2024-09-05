@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <title>MovieBooking</title>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -13,13 +12,7 @@
     <link rel="stylesheet" href="/css/bookingsection.css">
     <link rel="stylesheet" href="/css/owl.css">
     <link rel="stylesheet" href="/css/animate.css">
-<!--
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
--->
     <link rel="stylesheet" href="/css/commonsection.css">
-<!--    <link rel="stylesheet" href="/css/clickbutton.css">-->
-    <link rel="stylesheet" href="/css/bookingsection.css">
-
 </head>
 
 <body>
@@ -34,13 +27,32 @@
                             <div class="content">
                                 <div class="row">
                                     <div class="col-md-1">
-                                        <div class="booking-procedure" style="background-color: #ADD8E6; font-weight: bold;">1. </br>상영시간</div>
-                                        <div class="booking-procedure">2. </br>인원/좌석</div>
-                                        <div class="booking-procedure">3. </br>결제</div>
-                                        <div class="booking-procedure">4. </br>결제완료</div>
+                                        <div class="booking-procedure" style="background-color: #ADD8E6; font-weight: bold;">1. <br>상영시간</div>
+                                        <div class="booking-procedure">2. <br>인원/좌석</div>
+                                        <div class="booking-procedure">3. <br>결제</div>
+                                        <div class="booking-procedure">4. <br>결제완료</div>
                                     </div>
-                                    <!-- 영화 선택 영역 -->
+                                   <!-- &lt;!&ndash; 영화 선택 영역 &ndash;&gt;
                                     <div class="col-md-3">
+                                        <div class="selection-title">영화 선택</div>
+&lt;!&ndash;
+                                        <button th:text="${movie.title}" onclick="selectMovie(this)" th:data-movie-id="${movie.movieID}" style="color: #2b2b2b; font-size: 16px;"></button>
+&ndash;&gt;
+                                        <div class="movie-list">
+                                            <ul>
+                                                &lt;!&ndash; 영화 목록 내용 &ndash;&gt;
+                                                <li th:each="movie : ${movies}">
+                                                    <div style="margin-right: 10px;">
+                                                        <span th:text="${movie.rating}" style="color: #2b2b2b; font-size: 16px;"></span>
+                                                        <button th:text="${movie.title}" onclick="selectMovie(this)" th:data-movie-id="${movie.movieID}" style="color: #2b2b2b; font-size: 16px;"></button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+
+                                    <!-- 영화 선택 영역 -->
+                                    <div class="col-md-4">
                                         <div class="selection-title">영화 선택</div>
                                         <div class="movie-list">
                                             <ul>
@@ -48,43 +60,43 @@
                                                 <li th:each="movie : ${movies}">
                                                     <div style="margin-right: 10px;">
                                                         <span th:text="${movie.rating}" style="color: #2b2b2b; font-size: 16px;"></span>
-                                                        <button th:text="${movie.title}" onclick="selectMovie(this)" th:data-movie-id="${movie.movieID}" style="color: #2b2b2b; font-size: 16px;"></button>
-                                                       <!-- <input type="hidden" id="movieID" class="movieID" name="movieID" th:value="${movie.movieID}">-->
+                                                        <button
+                                                                th:text="${movie.title}"
+                                                                onclick="selectMovie(this)"
+                                                                th:data-movie-id="${movie.movieID}"
+                                                                style="color: #2b2b2b; font-size: 16px;">
+                                                        </button>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
 
-                                    <!-- 극장 선택 -->
-                                    <div class="col-md-2" >
+                                    <!--&lt;!&ndash; 극장 선택 &ndash;&gt;
+                                    <div class="col-md-2">
                                         <div class="contry">극장</div>
                                         <div class="contry-list">
-                                        <ul class="theater-list" style="margin-top: 30px; cursor: pointer; "></ul>
+                                            <ul class="theater-list" style="margin-top: 30px; cursor: pointer;"></ul>
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                     <!-- 날짜 선택 -->
                                     <div class="col-md-2">
                                         <div class="date">날짜</div>
-                                        <ul class="date-list">
-                                            <!--<div class="date-list">-->
-                                                <div class="highlight" id="monthYear"></div> <!-- 연도와 월을 표시할 곳 -->
-                                                <select id="monthSelect" class="month-select">
-                                                    <!-- 월 선택 옵션 -->
-                                                </select>
-                                                <div class="reserve-date"></div> <!-- 날짜 버튼들이 들어갈 컨테이너 -->
-                                            <!--</div>-->
-                                            <!-- 날짜 목록을 표시할 리스트 --> </ul>
+                                        <div class="highlight" id="monthYear"></div>
+                                        <select id="monthSelect" class="month-select">
+                                            <!-- 월 선택 옵션 -->
+                                        </select>
+                                        <div class="reserve-date"></div>
                                     </div>
-                                    <!-- 상영 시간 선택 -->
-                                    <div class="col-md-4">
-                                        <div class="selection-title">상영시간</div>
-                                        <ul class="time-list"> <!-- 상영 시간을 표시할 리스트 -->
-                                            <li th:each="showTimes : ${showTimes}">
-                                            <span th:text="'상영관' + ${showTimes.screenNum}"></span><br/>
 
-                                            <button th:text="${showTimes.startTime+'~'}" onclick="selectTime(${showTime.id})"></button>
+                                    <!-- 상영 시간 선택 -->
+                                    <div class="col-md-5">
+                                        <div class="selection-title">상영시간</div>
+                                        <ul class="time-list">
+                                            <li th:each="showTimes : ${showTimes}">
+                                                <span th:text="'상영관' + ${showTimes.screenNum}"></span><br/>
+                                                <button th:text="${showTimes.startTime + '~'}" onclick="selectTime([[${showTimes.id}]])"></button>
                                             </li>
                                         </ul>
                                     </div>
@@ -93,14 +105,13 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-12">
                         <div class="select-box">
-                            <!--선택한 요소들 뿌려주기-->
+                            <div id="selected-movie-title" style="font-weight: bold; margin-top: 10px;"></div>
                         </div>
                     </div>
-
                 </div>
+
                 <!-- 버튼 -->
                 <div class="col-lg-12">
                     <div class="main-border-button">
@@ -125,6 +136,4 @@
 <script src="/js/bookingselect.js"></script>
 
 </body>
-
 </html>
-

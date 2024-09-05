@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -23,7 +22,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable()) // 개발 환경에서만 CSRF 보호 비활성화
 
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/loginForm", "/joinForm","movieInfoForm").permitAll()
+                        .requestMatchers("/", "/loginForm", "/joinForm").permitAll()
                         .requestMatchers("/css/**", "/images/**", "/js/**", "/jquery/**", "/webfonts/**", "/upload/**").permitAll() // 정적 리소스 허용
                         .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/my/**").hasAnyRole("ADMIN", "USER")

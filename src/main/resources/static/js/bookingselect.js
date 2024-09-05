@@ -1,12 +1,12 @@
-
 // 전역 변수 및 요소 참조
-var s_selbox = [["강남", "분당", "용인"]]; // 극장 목록 배열
 const reserveDate = document.querySelector(".reserve-date"); // 날짜 버튼을 표시할 요소
 const monthYearDisplay = document.getElementById("monthYear"); // 현재 년월을 표시할 요소
 const monthSelect = document.getElementById("monthSelect"); // 월 선택 드롭다운 요소
 const weekOfDay = ["일", "월", "화", "수", "목", "금", "토"]; // 요일 배열
 let currentYear = new Date().getFullYear(); // 현재 연도
 let currentMonth = new Date().getMonth(); // 현재 월
+let selectedMovieId = null; // 선택된 영화 ID
+let selectedDate = null; // 선택된 날짜
 
 // 날짜를 YYYY-MM-DD 형식으로 변환하는 함수
 function formatDate(date) {
@@ -20,82 +20,80 @@ function formatDate(date) {
 function init() {
     populateMonthSelect(); // 월 선택 드롭다운 생성
     updateCalendar(); // 초기 달력 생성
-    renderTheaterList(); // 페이지 로드 시 극장 목록 자동 렌더링
 }
 
-// ************************************************************************
-// 영화 선택 후 극장 목록을 유지하도록 수정된 함수
+// 영화 선택 함수
 function selectMovie(element) {
-    // 클릭한 버튼에서 data-movie-id 값을 가져오기
-    var movieId = element.getAttribute('data-movie-id'); // movieId를 버튼의 data 속성에서 가져옴
-    console.log("Selected Movie ID:", movieId); // 선택된 영화의 ID를 콘솔에 출력
+    selectedMovieId = element.getAttribute('data-movie-id'); // movieId를 버튼의 data 속성에서 가져옴
+    var movieTitle = element.textContent; // 선택한 영화 제목 가져오기
+    console.log("Selected Movie ID:", selectedMovieId); // 선택된 영화의 ID를 콘솔에 출력
 
-    resetSelections(movieId); // 이전 선택 상태를 초기화하면서 선택된 movieId 전달
+    // 선택한 영화 제목을 HTML 요소에 표시
+    document.getElementById('selected-movie-title').textContent = `선택한 영화: ${movieTitle}`;
+   /* resetSelections(); // 이전 선택 상태를 초기화*/
+
+    // 날짜가 선택된 상태에서 상영 시간 목록을 업데이트하도록 설정
+    if (selectedDate) {
+        fetchShowTimes(selectedDate); // 선택된 날짜가 있다면 상영 시간 목록을 가져옴
+    }
 }
 
-// 선택 초기화 함수 (극장과 시간 목록을 비움)
-function resetSelections(movieId) {
-    // movieID 값을 서버로 전송하거나 다른 작업 수행
-    //console.log("선택한 영화 ID: " + movieId);
-    // 예시: AJAX를 통해 서버로 전송하거나 폼에 추가하여 제출
+/*
 
-    // 시간 목록만 초기화 (극장 목록은 유지)
+// 선택 초기화 함수 (상영 시간 목록을 비움)
+function resetSelections() {
     const timeList = document.querySelector('.time-list');
     if (timeList) timeList.innerHTML = ''; // 시간 목록 비우기
-
     console.log("Selections have been reset."); // 선택 초기화 완료 메시지
 }
-
-// 극장 목록 생성 함수
-function renderTheaterList() {
-    const placeList = document.querySelector('.theater-list'); // 극장 목록을 표시할 요소 선택
-    placeList.innerHTML = ''; // 기존 목록을 비움
-
-    // 's_selbox[0]' 배열의 각 극장 이름에 대해 반복
-    s_selbox[0].forEach(function (place) {
-        const li = document.createElement('li'); // 새로운 <li> 요소 생성0`0
-        li.textContent = place; // 극장 이름을 텍스트로 설정
-        li.onclick = function () {
-            selectTheater(place); // 클릭 시 selectTheater 함수 호출
-        };
-        placeList.appendChild(li); // <li> 요소를 극장 목록에 추가
-    });
-}
-
-// 극장 선택 후 상영 날짜 표시 함수
-function selectTheater(theater) {
-    console.log("Selected Theater:", theater); // 선택된 극장 이름을 콘솔에 출력
-    updateCalendar(); // 극장 선택 후 달력을 업데이트하여 유지
-}
+*/
 
 // 날짜 선택 시 상영 시간 목록 생성 함수
 function selectDate(date) {
     console.log("Selected Date:", formatDate(date)); // 포맷된 날짜를 콘솔에 출력
+    selectedDate = date; // 선택된 날짜를 저장
+    if (selectedMovieId) {
+        fetchShowTimes(date); // 서버에서 상영 시간 목록을 가져옵니다.
+    }
+}
 
-    // 상영 시간 목록을 표시하기 위해 서버에서 데이터를 가져옵니다.
-        fetch(`/getShowTimes?date=${formatDate(date)}`) // 예시 URL (서버에서 날짜에 해당하는 상영 시간 목록을 반환해야 함)
-            .then(response => response.json())
-            .then(showTimes => {
-                renderTimeList(showTimes); // 상영 시간 목록을 렌더링합니다.
-            })
-            .catch(error => {
-                console.error("Error fetching show times:", error);
-            });
+// 상영 시간 목록을 표시하기 위해 서버에서 데이터를 가져옵니다.
+function fetchShowTimes(date) {
+    if (!selectedMovieId) {
+        alert("영화를 선택해주세요.");
+        return;
+    }
 
+   $.ajax({
+       url: '/showtime/getShowTimes',  // 서버 URL
+       type: 'GET',  // HTTP 요청 방식
+       data: {  // 쿼리 파라미터
+           date: formatDate(date),  // 선택된 날짜
+           movieId: selectedMovieId  // 선택된 영화 ID
+       },
+       dataType: 'json',  // 서버로부터 기대하는 응답 형식
+       success: function(showTimes) {
+           renderTimeList(showTimes);  // 상영 시간 목록을 렌더링합니다.
+       },
+       error: function(xhr, status, error) {
+           console.error("Error fetching show times:", error);
+           alert("상영 시간을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.");
+       }
+   });
 }
 
 // 상영 시간 목록 생성 함수
 function renderTimeList(showTimes) {
     const timeList = document.querySelector('.time-list'); // 상영 시간 목록을 표시할 요소 선택
     timeList.innerHTML = ''; // 기존 목록을 비움
-if (showTimes.length === 0) {
+
+    if (showTimes.length === 0) {
         const noShowTimes = document.createElement('li');
         noShowTimes.textContent = "상영 시간이 없습니다.";
         timeList.appendChild(noShowTimes);
         return;
     }
 
-    // 'showTimes' 배열의 각 상영 시간에 대해 반복
     showTimes.forEach(function (showTime) {
         var li = document.createElement('li'); // 새로운 <li> 요소 생성
         var button = document.createElement('button'); // 상영 시간 버튼 생성
@@ -113,26 +111,7 @@ if (showTimes.length === 0) {
 function selectTime(id, startTime) {
     console.log("Selected Time ID:", id); // 선택된 상영 시간 ID를 콘솔에 출력
     console.log("Selected Time Start Time:", startTime); // 선택된 상영 시간 시작 시간을 콘솔에 출력
-    //alert("예매가 완료되었습니다!"); // 예매 완료 메시지 알림
-}
-
-
-// 상영 시간 목록을 표시하기 위해 서버에서 데이터를 가져옵니다.
-function fetchShowTimes(date) {
-    fetch(`/getShowTimes?date=${formatDate(date)}`) // 예시 URL (서버에서 날짜에 해당하는 상영 시간 목록을 반환해야 함)
-       /* .then(response => {
-            if (!response.ok) {
-                // 서버 응답 상태가 200 OK가 아닐 경우 오류 처리
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // JSON 응답 파싱
-        })*/
-        .then(showTimes => {
-            renderTimeList(showTimes); // 상영 시간 목록을 렌더링합니다.
-        })
-        .catch(error => {
-            console.error("Error fetching show times:", error);
-        });
+    // alert("예매가 완료되었습니다!"); // 예매 완료 메시지 알림
 }
 
 // 월 선택 드롭다운 생성 함수
@@ -190,37 +169,24 @@ function generateDatesForMonths(year, month) {
             spanWeekOfDay.classList.add("movie-week-of-day");
             spanDay.classList.add("movie-day");
 
-            // 요일 계산
-            const dayOfWeek = weekOfDay[date.getDay()];
+            // 텍스트 설정
+            spanWeekOfDay.innerText = weekOfDay[date.getDay()];
+            spanDay.innerText = i;
 
-            // 요일에 따라 스타일 추가
-            if (dayOfWeek === "토") {
-                spanWeekOfDay.classList.add("saturday");
-                spanDay.classList.add("saturday");
-            } else if (dayOfWeek === "일") {
-                spanWeekOfDay.classList.add("sunday");
-                spanDay.classList.add("sunday");
-            }
-            spanWeekOfDay.innerHTML = dayOfWeek;
-            button.append(spanWeekOfDay);
-
-            // 날짜 추가
-            spanDay.innerHTML = i;
-            button.append(spanDay);
+            button.append(spanWeekOfDay, spanDay);
+            button.onclick = function () {
+                selectDate(date); // 날짜 버튼 클릭 시 이벤트
+            };
 
             reserveDate.append(button);
-
-            // 클릭 이벤트 추가
-            button.addEventListener('click', () => selectDate(date)); // 날짜 선택 시 selectDate 호출
         }
     }
 }
 
-// 캘린더 업데이트 함수
+// 달력 업데이트 함수
 function updateCalendar() {
-    generateDatesForMonths(currentYear, currentMonth); // 현재 연도와 월에 따라 날짜 생성
-    reserveDate.scrollTop = 0; // 스크롤을 상단으로 이동
+    generateDatesForMonths(currentYear, currentMonth); // 날짜와 요일을 생성하여 달력을 업데이트
 }
 
-// 초기 설정 함수 호출
-document.addEventListener("DOMContentLoaded", init);
+// 초기화 함수 호출
+init();
