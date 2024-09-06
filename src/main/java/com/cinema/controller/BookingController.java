@@ -2,6 +2,7 @@ package com.cinema.controller;
 
 import com.cinema.domain.Movie;
 import com.cinema.domain.ShowTime;
+import com.cinema.domain.Theater;
 import com.cinema.service.MovieService;
 import com.cinema.service.ShowTimeService;
 import lombok.RequiredArgsConstructor;
@@ -32,15 +33,9 @@ public class BookingController {
         return "booking";
     }
 
- /*   @GetMapping("/getShowTimes")
-    public List<ShowTime> getShowTimes(@RequestParam("date") String date) {
-        return showTimeService.getShowTimesByDate(date); // 수정된 메서드 호출
-    }*/
-
     //영화관 좌석 선택하기
     @GetMapping("/selectSeat")
-    public String SelectSeat (){
-
+    public String selectSeat(@RequestParam Theater theater, Model model) {
 
         return "/movies/selectSeat";
     }

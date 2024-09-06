@@ -1,6 +1,7 @@
 package com.cinema.service;
 
 import com.cinema.domain.ShowTime;
+import com.cinema.domain.Theater;
 import com.cinema.repository.ShowTimeRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,9 @@ public class ShowTimeService {
         return showTimeRepository.save(showTime);
     }
 
-
+    public List<ShowTime> getShowTimesByTheater(Theater theater) {
+        return showTimeRepository.findByTheater(theater);
+    }
     public List<ShowTime> getAllShowTimes() {
         return showTimeRepository.findAll();
     }

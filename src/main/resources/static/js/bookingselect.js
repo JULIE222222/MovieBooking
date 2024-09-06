@@ -30,7 +30,7 @@ function selectMovie(element) {
 
     // 선택한 영화 제목을 HTML 요소에 표시
     document.getElementById('selected-movie-title').textContent = `선택한 영화: ${movieTitle}`;
-   /* resetSelections(); // 이전 선택 상태를 초기화*/
+    resetSelections(); // 이전 선택 상태를 초기화
 
     // 날짜가 선택된 상태에서 상영 시간 목록을 업데이트하도록 설정
     if (selectedDate) {
@@ -38,7 +38,6 @@ function selectMovie(element) {
     }
 }
 
-/*
 
 // 선택 초기화 함수 (상영 시간 목록을 비움)
 function resetSelections() {
@@ -46,7 +45,6 @@ function resetSelections() {
     if (timeList) timeList.innerHTML = ''; // 시간 목록 비우기
     console.log("Selections have been reset."); // 선택 초기화 완료 메시지
 }
-*/
 
 // 날짜 선택 시 상영 시간 목록 생성 함수
 function selectDate(date) {

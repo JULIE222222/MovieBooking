@@ -94,6 +94,7 @@
                                     <div class="col-md-5">
                                         <div class="selection-title">상영시간</div>
                                         <ul class="time-list">
+
                                             <li th:each="showTimes : ${showTimes}">
                                                 <span th:text="'상영관' + ${showTimes.screenNum}"></span><br/>
                                                 <button th:text="${showTimes.startTime + '~'}" onclick="selectTime([[${showTimes.id}]])"></button>

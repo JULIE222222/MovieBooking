@@ -19,9 +19,13 @@
         </select><br/>
     </div>
 
+    <!-- 상영관 선택 드롭다운 -->
     <div class="form-group">
-        <label>상영관: </label>
-        <input type="number" th:field="*{screenNum}" class="form-control" placeholder="상영관을 입력하세요"><br/>
+        <label for="theater">상영관 선택:</label>
+        <select name="theaterID" id="theater">
+                <option th:each="theater : ${theaters}" th:value="${theater.theaterID}" th:text="${theater.screenNum}"></option> <!-- long -->
+        </select>
+        <br/>
     </div>
 
     <div class="form-group">

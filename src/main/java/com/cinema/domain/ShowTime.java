@@ -18,21 +18,21 @@ public class ShowTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "showtime_id")
     private Long showTimeID;
-    private Long screenNum;
 
-    private String location;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "theater_id", referencedColumnName = "theater_id")
+    @JsonIgnore
+    private Theater theater; // 극장(객체) 타입~~
 
-    @Column(name = "show_date") // 데이터베이스 컬럼과 매핑
+    @Column(name = "show_date")
     private String showDate;
 
     private LocalTime startTime;
     private LocalTime endTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "movie_id") //외래키 컬럼 이름
+    @JoinColumn(name = "movie_id")
     @JsonIgnore
     private Movie movie;
 
 }
-
-
