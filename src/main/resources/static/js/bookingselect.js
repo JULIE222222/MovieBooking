@@ -28,10 +28,7 @@ function selectMovie(element) {
     var movieTitle = element.textContent; // 선택한 영화 제목 가져오기
     console.log("Selected Movie ID:", selectedMovieId); // 선택된 영화의 ID를 콘솔에 출력
 
-    // 선택한 영화 제목을 HTML 요소에 표시
-    document.getElementById('selected-movie-title').textContent = `선택한 영화: ${movieTitle}`;
     resetSelections(); // 이전 선택 상태를 초기화
-
     // 날짜가 선택된 상태에서 상영 시간 목록을 업데이트하도록 설정
     if (selectedDate) {
         fetchShowTimes(selectedDate); // 선택된 날짜가 있다면 상영 시간 목록을 가져옴
@@ -81,35 +78,110 @@ function fetchShowTimes(date) {
 }
 
 // 상영 시간 목록 생성 함수
-function renderTimeList(showTimes) {
+function renderTimeList(groupedShowTimes) {
+    const timeList = document.querySelector('.time-list'); // 상영 시간 목록을 표시할 요소 찾기
+    timeList.innerHTML = ''; // 기존 목록 비우기
+
+    if (Object.keys(groupedShowTimes).length === 0) { // 상영 시간이 없을 경우
+        const noShowTimes = document.createElement('li'); // <li> 요소 생성
+        noShowTimes.textContent = "상영 시간이 없습니다."; // 텍스트 설정
+        timeList.appendChild(noShowTimes); // 목록에 추가
+        return; // 함수 종료
+    }
+
+    // 상영관별로 상영 시간을 그룹화하여 표시
+    for (const [screenNum, showTimes] of Object.entries(groupedShowTimes)) { // 상영관 번호와 상영 시간들을 반복
+        const screenTitle = document.createElement('div'); // <div> 요소 생성
+        screenTitle.textContent = `${screenNum} 관`; // 상영관 번호 텍스트 설정
+        screenTitle.classList.add('screen-title'); // 제목에 CSS 클래스 추가
+        timeList.appendChild(screenTitle); // 상영관 제목 추가
+
+        let row; // 새로운 행을 위한 변수 선언
+        showTimes.forEach(function (showTime, index) { // 각 상영 시간에 대해 반복
+            if (index % 3 === 0) { // 매 3번째마다 새로운 행을 추가
+                row = document.createElement('div'); // 새로운 행 생성
+                row.classList.add('row'); // Bootstrap 또는 커스텀 클래스 추가
+                timeList.appendChild(row); // 목록에 새로운 행 추가
+            }
+
+            const col = document.createElement('div'); // 새로운 열 생성
+            col.classList.add('col'); // Bootstrap 또는 커스텀 클래스 추가
+
+            const button = document.createElement('button'); // 상영 시간 버튼 생성
+
+            // 시간을 "시:분" 형식으로 변환
+            const [hours, minutes] = showTime.startTime.split(':'); // "시:분:초"를 분리하여 시와 분만 사용
+            const formattedTime = `${hours}:${minutes}`; // "시:분" 형식으로 시간 포맷
+
+            button.textContent = formattedTime; // 버튼에 포맷된 상영 시간 텍스트 설정
+            button.onclick = function () {
+                selectTime(showTime.showtimeid, showTime.startTime); // 클릭 시 최종 상영 시간 선택 함수 호출
+            };
+
+            col.appendChild(button); // 버튼을 열에 추가
+            row.appendChild(col); // 열을 행에 추가
+        });
+    }
+}
+
+
+/*function renderTimeList(groupedShowTimes) {
     const timeList = document.querySelector('.time-list'); // 상영 시간 목록을 표시할 요소 선택
     timeList.innerHTML = ''; // 기존 목록을 비움
 
-    if (showTimes.length === 0) {
+    if (Object.keys(groupedShowTimes).length === 0) {
         const noShowTimes = document.createElement('li');
         noShowTimes.textContent = "상영 시간이 없습니다.";
         timeList.appendChild(noShowTimes);
         return;
     }
+    // 상영관별로 상영 시간을 그룹화하여 표시
+      for (const [screenNum, showTimes] of Object.entries(groupedShowTimes)) { // 상영관 번호와 상영 시간들을 반복
+            const screenTitle = document.createElement('div'); // <div> 요소 생성
+            screenTitle.textContent = `${screenNum} 관`; // 상영관 번호 텍스트 설정
+            timeList.appendChild(screenTitle); // 상영관 제목 추가
 
-    showTimes.forEach(function (showTime) {
-        var li = document.createElement('li'); // 새로운 <li> 요소 생성
-        var button = document.createElement('button'); // 상영 시간 버튼 생성
-        button.textContent = `${showTime.startTime} ~`; // 버튼 텍스트 설정
-        button.onclick = function () {
-            selectTime(showTime.id, showTime.startTime); // 클릭 시 selectTime 함수 호출
-        };
+            showTimes.forEach(function (showTime) { // 각 상영 시간에 대해 반복
+                var li = document.createElement('li'); // 새로운 <li> 요소 생성
+                var button = document.createElement('button'); // 상영 시간 버튼 생성
 
-        li.appendChild(button);
-        timeList.appendChild(li); // <li> 요소를 상영 시간 목록에 추가
-    });
-}
+                // 시간을 "시:분" 형식으로 변환
+                const [hours, minutes] = showTime.startTime.split(':'); // "시:분:초"를 분리하여 시와 분만 사용
+                const formattedTime = `${hours}:${minutes}`; // "시:분" 형식으로 시간 포맷
+
+                button.textContent = formattedTime; // 버튼에 포맷된 상영 시간 텍스트 설정
+                button.onclick = function () {
+                    selectTime(showTime.showtimeid, showTime.startTime); // 클릭 시 최종 상영 시간 선택 함수 호출
+                };
+
+                li.appendChild(button); // 버튼을 <li> 요소에 추가
+                timeList.appendChild(li); // <li> 요소를 상영 시간 목록에 추가
+            });
+        }
+    }*/
+    /*for (const [screenNum, showTimes] of Object.entries(groupedShowTimes)) {
+        const screenTitle = document.createElement('div');
+        screenTitle.textContent = `${screenNum} 관`; // 상영관 번호 표시
+        timeList.appendChild(screenTitle);
+
+        showTimes.forEach(function (showTime) {
+            var li = document.createElement('li'); // 새로운 <li> 요소 생성
+            var button = document.createElement('button'); // 상영 시간 버튼 생성
+            button.textContent = `${showTime.startTime}`; // 버튼 텍스트 설정
+            button.onclick = function () {
+                selectTime(showTime.showtimeid, showTime.startTime); // 클릭 시 selectTime 함수 호출
+            };
+
+            li.appendChild(button);
+            timeList.appendChild(li); // <li> 요소를 상영 시간 목록에 추가
+        });
+    }
+}*/
 
 // 최종 상영 시간 선택 함수
-function selectTime(id, startTime) {
-    console.log("Selected Time ID:", id); // 선택된 상영 시간 ID를 콘솔에 출력
+function selectTime(showtimeid, startTime) {
+    console.log("Selected Time ID:", showtimeid); // 선택된 상영 시간 ID를 콘솔에 출력
     console.log("Selected Time Start Time:", startTime); // 선택된 상영 시간 시작 시간을 콘솔에 출력
-    // alert("예매가 완료되었습니다!"); // 예매 완료 메시지 알림
 }
 
 // 월 선택 드롭다운 생성 함수

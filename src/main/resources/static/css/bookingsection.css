@@ -291,7 +291,7 @@ body {
     height: 150px;
     padding: 20px;
     margin-bottom: 20px;
-    margin-left: 92px;
+    margin-left: 116px;
     /*border-radius: 10px;*/
     text-align: center;
     font-size: 18px;
@@ -299,4 +299,24 @@ body {
     color: #333;
     border: 1px solid #2b2b2b;
 }
+
+/* 상영관 제목을 왼쪽 정렬 */
+.time-list div {
+    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
+    margin-bottom: 10px; /* 제목과 버튼 사이의 여백 설정 */
+    margin-left: 15px; /* 제목과 버튼 사이의 여백 설정 */
+}
+
+/* 상영 시간 버튼 목록을 왼쪽으로 채워나감 */
+.time-list .row {
+    display: flex; /* Flexbox 사용 */
+    justify-content: flex-start; /* Flexbox로 왼쪽 정렬 */
+    margin-bottom: 10px; /* 버튼들 간의 아래 여백 설정 */
+}
+
+.time-list .col {
+    flex: 0 0 auto; /* 열 크기를 고정하여 버튼을 균등하게 배치 */
+    margin-right: 10px; /* 각 열의 오른쪽 여백 설정 */
+}
+
 

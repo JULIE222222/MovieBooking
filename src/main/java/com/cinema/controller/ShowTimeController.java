@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/showtime")
@@ -28,11 +30,7 @@ public class ShowTimeController {
     public String showtimeInfoForm(Model model) {
 
         List<Movie> movies = movieService.getAllMovies();
-        //상영관 목록
-        List<Theater> theaters = new ArrayList<>();
-        theaters.add(new Theater(1L, 1L));
-        theaters.add(new Theater(2L, 2L));
-        theaters.add(new Theater(3L, 3L));
+        List<Theater> theaters = theaterService.getAllTheaters();
 
         model.addAttribute("movies", movies);
         model.addAttribute("theaters", theaters);
@@ -42,6 +40,10 @@ public class ShowTimeController {
 
     @PostMapping("/showtimeInfoForm")
     public String submitShowtimeInfo(@ModelAttribute ShowTime showTime) {
+        // 디버깅을 위한 로그 출력
+        System.out.println("Theater ID: " + showTime.getTheater().getTheaterID());
+        System.out.println("Screen Number: " + showTime.getTheater().getScreenNum());
+
         showTimeService.saveShowTime(showTime);
         return "redirect:/showtime/showtimeInfoForm";
     }
@@ -58,8 +60,17 @@ public class ShowTimeController {
     //상영시간 정보를 조회하고 반환하기
     @GetMapping("/getShowTimes")
     @ResponseBody
-    public List<ShowTime> getShowTimes(@RequestParam(value = "movieId") Long movieId, @RequestParam (value = "date") String showDate) {
-        // 영화 ID와 날짜에 따라 상영 시간 정보를 조회하고 반환
-        return showTimeRepository.findByMovie_MovieIDAndShowDate(movieId, showDate);
+    public Map<String, List<ShowTime>> getShowTimes(@RequestParam(value = "movieId") Long movieId,
+                                                    @RequestParam(value = "date") String showDate) {
+        List<ShowTime> showTimes = showTimeRepository.findByMovie_MovieIDAndShowDate(movieId, showDate);
+
+        // 상영관별로 상영 시간을 그룹화
+        Map<String, List<ShowTime>> groupedShowTimes = new HashMap<>();
+        for (ShowTime showTime : showTimes) {
+            String screenNum = String.valueOf(showTime.getTheater().getScreenNum());
+            groupedShowTimes.computeIfAbsent(screenNum, k -> new ArrayList<>()).add(showTime);
+        }
+
+        return groupedShowTimes; // 상영관별로 그룹화된 상영 시간 반환
     }
 }

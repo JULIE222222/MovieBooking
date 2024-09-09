@@ -20,13 +20,14 @@
     </div>
 
     <!-- 상영관 선택 드롭다운 -->
-    <div class="form-group">
-        <label for="theater">상영관 선택:</label>
-        <select name="theaterID" id="theater">
-                <option th:each="theater : ${theaters}" th:value="${theater.theaterID}" th:text="${theater.screenNum}"></option> <!-- long -->
-        </select>
-        <br/>
-    </div>
+    <label for="theater">상영관 선택:</label>
+    <select name="theater" id="theater">
+        <option value="">상영관 선택</option>
+        <!-- 상영관 목록을 드롭다운으로 표시 -->
+        <th:block th:each="theater : ${theaters}">
+            <option th:value="${theater.theaterID}" th:text="${theater.screenNum}"></option>
+        </th:block>
+    </select>
 
     <div class="form-group">
         <label>상영날짜: </label>

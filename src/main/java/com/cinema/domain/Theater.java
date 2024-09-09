@@ -17,12 +17,9 @@ public class Theater {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "theater_id")
     private Long theaterID;
+    @Column(name = "screen_num") // 수정 확인: 컬럼 이름을 명시적으로 매핑
     private Long screenNum;
 
-    // 하드코딩 데이터 생성을 위한 생성자 추가
-    public Theater(Long theaterID, Long screenNum) {
-        this.theaterID = theaterID;
-        this.screenNum = screenNum;
-    }
+
 
 }
