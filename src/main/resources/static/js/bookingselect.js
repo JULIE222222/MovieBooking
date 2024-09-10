@@ -22,19 +22,48 @@ function init() {
     updateCalendar(); // 초기 달력 생성
 }
 
+// 영화 포스터를 렌더링하는 함수
+function renderPoster(posterData) {
+    if (posterData.posterURL) {
+        const imageUrl = `/upload/${posterData.posterURL}`;
+        console.log('Image URL:', imageUrl); // 디버깅을 위한 로그
+        document.getElementById('selected-movie-poster').innerHTML =
+            `<img src="${imageUrl}" alt="Movie Poster" style="width: 100%;">`;
+    } else {
+        console.error('Poster URL not found in response.');
+    }
+}
+
 // 영화 선택 함수
 function selectMovie(element) {
     selectedMovieId = element.getAttribute('data-movie-id'); // movieId를 버튼의 data 속성에서 가져옴
     var movieTitle = element.textContent; // 선택한 영화 제목 가져오기
+    var moviePosterUrl = element.getAttribute('data-movie-poster'); // 영화 포스터 URL 가져오기
     console.log("Selected Movie ID:", selectedMovieId); // 선택된 영화의 ID를 콘솔에 출력
 
-    resetSelections(); // 이전 선택 상태를 초기화
-    // 날짜가 선택된 상태에서 상영 시간 목록을 업데이트하도록 설정
+    $.ajax({ // jQuery의 ajax 메서드를 사용
+        url: '/movie/getPoster', // 서버 URL
+        type: 'GET', // 요청 방식
+        data: {
+            movieId: selectedMovieId // 쿼리 파라미터
+        },
+        dataType: 'json', // 서버로부터 기대하는 응답 형식
+        success: function(posterData) {
+            console.log('Poster Data:', posterData); // 데이터 확인
+            renderPoster(posterData); // 포스터 렌더링 함수 호출
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching movie poster:", error); // 에러 콘솔에 출력
+        }
+    });
+
+    updateSelectedMovie(movieTitle, moviePosterUrl);
+    resetSelections();
+
     if (selectedDate) {
-        fetchShowTimes(selectedDate); // 선택된 날짜가 있다면 상영 시간 목록을 가져옴
+        fetchShowTimes(selectedDate);
     }
 }
-
 
 // 선택 초기화 함수 (상영 시간 목록을 비움)
 function resetSelections() {
@@ -46,6 +75,7 @@ function resetSelections() {
 // 날짜 선택 시 상영 시간 목록 생성 함수
 function selectDate(date) {
     console.log("Selected Date:", formatDate(date)); // 포맷된 날짜를 콘솔에 출력
+    updateSelectedDate(date);
     selectedDate = date; // 선택된 날짜를 저장
     if (selectedMovieId) {
         fetchShowTimes(date); // 서버에서 상영 시간 목록을 가져옵니다.
@@ -59,22 +89,22 @@ function fetchShowTimes(date) {
         return;
     }
 
-   $.ajax({
-       url: '/showtime/getShowTimes',  // 서버 URL
-       type: 'GET',  // HTTP 요청 방식
-       data: {  // 쿼리 파라미터
-           date: formatDate(date),  // 선택된 날짜
-           movieId: selectedMovieId  // 선택된 영화 ID
-       },
-       dataType: 'json',  // 서버로부터 기대하는 응답 형식
-       success: function(showTimes) {
-           renderTimeList(showTimes);  // 상영 시간 목록을 렌더링합니다.
-       },
-       error: function(xhr, status, error) {
-           console.error("Error fetching show times:", error);
-           alert("상영 시간을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.");
-       }
-   });
+    $.ajax({
+        url: '/showtime/getShowTimes',  // 서버 URL
+        type: 'GET',  // HTTP 요청 방식
+        data: {  // 쿼리 파라미터
+            date: formatDate(date),  // 선택된 날짜
+            movieId: selectedMovieId  // 선택된 영화 ID
+        },
+        dataType: 'json',  // 서버로부터 기대하는 응답 형식
+        success: function(showTimes) {
+            renderTimeList(showTimes);  // 상영 시간 목록을 렌더링합니다.
+        },
+        error: function(xhr, status, error) {
+            console.error("Error fetching show times:", error);
+            alert("상영 시간을 불러오는 중 오류가 발생했습니다. 다시 시도해주세요.");
+        }
+    });
 }
 
 // 상영 시간 목록 생성 함수
@@ -123,60 +153,6 @@ function renderTimeList(groupedShowTimes) {
         });
     }
 }
-
-
-/*function renderTimeList(groupedShowTimes) {
-    const timeList = document.querySelector('.time-list'); // 상영 시간 목록을 표시할 요소 선택
-    timeList.innerHTML = ''; // 기존 목록을 비움
-
-    if (Object.keys(groupedShowTimes).length === 0) {
-        const noShowTimes = document.createElement('li');
-        noShowTimes.textContent = "상영 시간이 없습니다.";
-        timeList.appendChild(noShowTimes);
-        return;
-    }
-    // 상영관별로 상영 시간을 그룹화하여 표시
-      for (const [screenNum, showTimes] of Object.entries(groupedShowTimes)) { // 상영관 번호와 상영 시간들을 반복
-            const screenTitle = document.createElement('div'); // <div> 요소 생성
-            screenTitle.textContent = `${screenNum} 관`; // 상영관 번호 텍스트 설정
-            timeList.appendChild(screenTitle); // 상영관 제목 추가
-
-            showTimes.forEach(function (showTime) { // 각 상영 시간에 대해 반복
-                var li = document.createElement('li'); // 새로운 <li> 요소 생성
-                var button = document.createElement('button'); // 상영 시간 버튼 생성
-
-                // 시간을 "시:분" 형식으로 변환
-                const [hours, minutes] = showTime.startTime.split(':'); // "시:분:초"를 분리하여 시와 분만 사용
-                const formattedTime = `${hours}:${minutes}`; // "시:분" 형식으로 시간 포맷
-
-                button.textContent = formattedTime; // 버튼에 포맷된 상영 시간 텍스트 설정
-                button.onclick = function () {
-                    selectTime(showTime.showtimeid, showTime.startTime); // 클릭 시 최종 상영 시간 선택 함수 호출
-                };
-
-                li.appendChild(button); // 버튼을 <li> 요소에 추가
-                timeList.appendChild(li); // <li> 요소를 상영 시간 목록에 추가
-            });
-        }
-    }*/
-    /*for (const [screenNum, showTimes] of Object.entries(groupedShowTimes)) {
-        const screenTitle = document.createElement('div');
-        screenTitle.textContent = `${screenNum} 관`; // 상영관 번호 표시
-        timeList.appendChild(screenTitle);
-
-        showTimes.forEach(function (showTime) {
-            var li = document.createElement('li'); // 새로운 <li> 요소 생성
-            var button = document.createElement('button'); // 상영 시간 버튼 생성
-            button.textContent = `${showTime.startTime}`; // 버튼 텍스트 설정
-            button.onclick = function () {
-                selectTime(showTime.showtimeid, showTime.startTime); // 클릭 시 selectTime 함수 호출
-            };
-
-            li.appendChild(button);
-            timeList.appendChild(li); // <li> 요소를 상영 시간 목록에 추가
-        });
-    }
-}*/
 
 // 최종 상영 시간 선택 함수
 function selectTime(showtimeid, startTime) {
@@ -256,6 +232,33 @@ function generateDatesForMonths(year, month) {
 // 달력 업데이트 함수
 function updateCalendar() {
     generateDatesForMonths(currentYear, currentMonth); // 날짜와 요일을 생성하여 달력을 업데이트
+}
+
+// 선택된 영화 업데이트 함수
+function updateSelectedMovie(movieTitle, moviePosterUrl) {
+    document.getElementById('selected-movie-title').textContent = `${movieTitle}`;
+    document.getElementById('selected-movie-poster').innerHTML =`<img src="${moviePosterUrl}" alt="${movieTitle}" style="width: 50%">`;
+}
+
+// 선택된 날짜 업데이트 함수
+function updateSelectedDate(date) {
+    document.getElementById('selected-date').textContent = `날짜: ${formatDate(date)}`;
+}
+
+// 선택된 시간 업데이트 함수
+function updateSelectedTime(startTime, endTime) {
+    document.getElementById('selected-time').textContent = `시간: ${startTime}`;
+}
+
+// 선택된 좌석 업데이트 함수
+function updateSelectedSeat(seat) {
+    document.getElementById('selected-seat').textContent = `좌석: ${seat}`;
+}
+
+// 상영 시간 선택 함수
+function selectShowTime(showTime) {
+    updateSelectedTime(showTime.startTime, showTime.endTime);
+    console.log("Selected ShowTime:", showTime); // 선택된 상영 시간 객체를 콘솔에 출력
 }
 
 // 초기화 함수 호출

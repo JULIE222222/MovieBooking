@@ -5,6 +5,7 @@ import com.cinema.repository.MovieRepository;
 import com.cinema.service.MovieService;
 import com.cinema.utils.MyPath;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Controller
@@ -121,4 +124,34 @@ public class MovieController {
         model.addAttribute("movie",movie);
         return "movies/movieDetailPage";
     }
+
+
+   /* // 영화 포스터 가져오기 엔드포인트
+    @GetMapping("/movie/getPoster")
+    @ResponseBody
+    public String getMoviePoster(@RequestParam("movieId") Long movieId) {
+        Movie movie = movieService.findById(movieId);
+        if (movie != null) {
+
+            System.out.println(movie.getPosterURL());
+            return movie.getPosterURL();  // 포스터 URL 반환
+        } else {
+            return "영화 정보를 찾을 수 없습니다.";  // 에러 메시지
+        }
+    }*/
+
+    @GetMapping("/movie/getPoster")
+    @ResponseBody
+    public ResponseEntity<Map<String, String>> getMoviePoster(@RequestParam("movieId") Long movieId) {
+        Movie movie = movieService.findById(movieId);
+        Map<String, String> response = new HashMap<>();
+        if (movie != null) {
+            response.put("posterURL", movie.getPosterURL());
+            System.out.println(movie.getPosterURL());
+        } else {
+            response.put("error", "영화 정보를 찾을 수 없습니다.");
+        }
+        return ResponseEntity.ok(response);
+    }
 }
+
