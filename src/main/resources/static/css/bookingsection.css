@@ -126,6 +126,7 @@ body {
 
 /* 상영 시간 타이틀 */
 .game-details .schedule {
+
     height: 40px;
     flex: 1; /* 남은 공간을 채우도 설정 */
     color: #ffffff; /* 텍스트 색상 */
@@ -146,7 +147,7 @@ body {
     margin-bottom: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
     margin-right: -1px; /* 다음 요소와의 중복 방지를 위해 마이너스 마진 적용 */
     overflow-y: auto;
-    width: 100.4%;
+    width: 100.2%;
     cursor: pointer;
 }
 
@@ -235,7 +236,7 @@ body {
 }
 
 .select-box {
-    width: 1278px;
+    width: 1277px;
     height: 183px;
     padding: 20px;
     margin-bottom: 20px;
@@ -269,16 +270,25 @@ body {
 
 
  .selected-movie-poster {
-        width: 100px; /* 원하는 너비 */
+        width: 200px; /* 원하는 너비 */
         height: 150px; /* 원하는 높이 */
         display: flex; /* Flexbox 사용 */
         justify-content: center; /* 가로 중앙 정렬 */
         align-items: center; /* 세로 중앙 정렬 */
-        overflow: hidden; /* 이미지가 영역을 넘을 경우 잘리게 설정 */
+        /*overflow: hidden; *//* 이미지가 영역을 넘을 경우 잘리게 설정 */
         margin: 0 auto; /* 요소 자체를 페이지 중앙으로 정렬 (선택 사항) */
     }
 
-    .selected-movie-poster img {
-        max-width: 100%; /* 이미지가 div를 넘지 않도록 설정 */
-        max-height: 100%; /* 이미지가 div를 넘지 않도록 설정 */
+    .selected-movie-poster .img {
+        width: 140px;
+        height: 174px;
+        margin-top: -16px;
     }
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 비율을 유지하면서 이미지가 공간에 맞추어 표시됩니다 */
+    display: block;
+    margin: auto; /* 가운데 정렬 */
+}

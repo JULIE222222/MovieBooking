@@ -35,7 +35,7 @@ public class BookingController {
 
     //영화관 좌석 선택하기
     @GetMapping("/selectSeat")
-    public String selectSeat(@RequestParam Theater theater, Model model) {
+    public String selectSeat() {
 
         return "/movies/selectSeat";
     }
