@@ -1,10 +1,10 @@
-package com.cinema.dto;
+package com.cinema.domain.form;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 
-public class MovieDTO {
+public class MovieForm {
 
     private String title;
     private MultipartFile pic;

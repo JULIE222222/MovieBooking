@@ -3,15 +3,22 @@ package com.cinema.controller;
 import com.cinema.domain.Movie;
 import com.cinema.domain.ShowTime;
 import com.cinema.domain.Theater;
+import com.cinema.domain.form.ShowTimeForm;
 import com.cinema.service.MovieService;
 import com.cinema.service.ShowTimeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 @RequiredArgsConstructor
@@ -33,11 +40,37 @@ public class BookingController {
         return "booking";
     }
 
+    //선택한 데이터 좌석선택하는 view로 가져오기
+    @PostMapping("/prebooking")
+    public String getPreBookingData(@ModelAttribute ShowTimeForm showTimeForm, Model model){
+        String hidden_poster = showTimeForm.getHidden_poster();
+        String hidden_title = showTimeForm.getHidden_title();
+        LocalDate hidden_date = showTimeForm.getHidden_date();
+        LocalTime hidden_time = showTimeForm.getHidden_time();
+
+        //가져온 정보를 모델에 추가하여 view에 전달
+        model.addAttribute("hidden_poster",hidden_poster);
+        model.addAttribute("hidden_title", hidden_title);
+        model.addAttribute("hidden_date", hidden_date);
+        model.addAttribute("hidden_time", hidden_time);
+
+        System.out.println("hidden_time = " + hidden_time);
+
+        return "/reserve/selectSeat";
+    }
+
+
     //영화관 좌석 선택하기
     @GetMapping("/selectSeat")
     public String selectSeat() {
 
-        return "/movies/selectSeat";
+        return "/reserve/selectSeat";
+    }
+
+    @PostMapping("/selectSeat")
+    public String setSelectSeat(){
+
+        return "/reserve/selectSeat";
     }
 
 }

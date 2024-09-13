@@ -70,49 +70,63 @@
                                         </ul>
                                     </div>
 
-                                    <div class="col-lg-12">
-                                        <div class="select-box">
-                                            <div class="row">
-                                                <div class="col-sm-2" id="selected-movie-poster" style="width: 200px; max-height: 150px; overflow: hidden;">
-                                                    <!-- 영화 포스터를 표시할 영역 -->
-                                                </div>
-                                                <div class="col-sm-2" id="selected-movie-title" style="font-weight: bold;">
-                                                    <!-- 영화 제목을 표시할 영역 -->
-                                                </div>
-                                                <div class="col-sm-2" id="selected-date">
-                                                    <!-- 선택된 날짜를 표시할 영역 -->
-                                                </div>
-                                                <div class="col-sm-2" id="selected-time">
-                                                    <!-- 선택된 시간을 표시할 영역 -->
-                                                </div>
-                                                <div class="col-sm-2" id="selected-seat">
-                                                    <!-- 선택된 좌석을 표시할 영역 -->
+                                    <!-- 영화, 날짜, 시간 선택 영역 -->
+                                    <form action="/prebooking" method="post">
+
+                                        <input type="hidden" name="hidden_poster" id="hidden_poster">
+                                        <input type="hidden" name="hidden_title" id="hidden_title">
+                                        <input type="hidden" name="hidden_date" id="hidden_date">
+                                        <input type="hidden" name="hidden_time" id="hidden_time">
+
+                                        <div class="col-lg-12">
+                                            <div class="select-box">
+                                                <div class="row">
+                                                    <div class="col-sm-2" id="selected-movie-poster" name="poster" style="width: 200px; max-height: 150px; overflow: hidden;">
+                                                        <!-- 영화 포스터를 표시할 영역 -->
+                                                    </div>
+                                                    <div class="col-sm-2" id="selected-movie-title" name="title" style="font-weight: bold;">
+                                                        <!-- 영화 제목을 표시할 영역 -->
+                                                    </div>
+                                                    <div class="col-sm-2" name="date" id="selected-date">
+                                                        <!-- 선택된 날짜를 표시할 영역 -->
+                                                    </div>
+                                                    <div class="col-sm-2" name="time" id="selected-time">
+                                                        <!-- 선택된 시간을 표시할 영역 -->
+                                                    </div>
+                                                    <div class="col-sm-2" id="selected-seat">
+                                                        <!-- 선택된 좌석을 표시할 영역 -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                <!-- 버튼 -->
-                                <div class="col-lg-12">
-                                    <div class="main-border-button">
-                                        <a href="/selectSeat">좌석선택</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                        <!-- 버튼 -->
+                                        <div class="col-lg-12">
+                                            <div class="main-border-button">
+                                                <button type="submit">좌석선택</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- content의 닫힘 태그 -->
+                            </div> <!-- row의 닫힘 태그 -->
+                        </div> <!-- game-details의 닫힘 태그 -->
+                    </div> <!-- col-lg-12의 닫힘 태그 -->
+                </div> <!-- row의 닫힘 태그 -->
+            </div> <!-- container의 닫힘 태그 -->
 
-                <div th:replace="fragments/footer ::footer"></div>
+            <div th:replace="fragments/footer ::footer"></div>
 
-                <!-- Scripts -->
-                <script src="/jquery/jquery.min.js"></script>
-                <script src="/js/bootstrap.min.js"></script>
-                <script src="/js/isotope.min.js"></script>
-                <script src="/js/owl-carousel.js"></script>
-                <script src="/js/tabs.js"></script>
-                <script src="/js/popup.js"></script>
-                <script src="/js/custom.js"></script>
-                <script src="/js/bookingselect.js"></script> <!-- JavaScript 코드 파일 -->
+            <!-- Scripts -->
+            <script src="/jquery/jquery.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/isotope.min.js"></script>
+            <script src="/js/owl-carousel.js"></script>
+            <script src="/js/tabs.js"></script>
+            <script src="/js/popup.js"></script>
+            <script src="/js/custom.js"></script>
+            <script src="/js/bookingselect.js"></script> <!-- JavaScript 코드 파일 -->
+        </div> <!-- 전체 col-lg-12의 닫힘 태그 -->
+    </div> <!-- 전체 row의 닫힘 태그 -->
+</div> <!-- 전체 container의 닫힘 태그 -->
 </body>
 </html>
