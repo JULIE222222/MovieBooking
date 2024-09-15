@@ -55,6 +55,9 @@ public class BookingController {
         model.addAttribute("hidden_time", hidden_time);
 
         System.out.println("hidden_time = " + hidden_time);
+        System.out.println("hidden_title = " + hidden_title);
+        System.out.println("hidden_date = " + hidden_date);
+        System.out.println("hidden_poster = " + hidden_poster);
 
         return "/reserve/selectSeat";
     }

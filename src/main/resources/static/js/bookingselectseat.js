@@ -67,5 +67,27 @@ container.addEventListener("click", (e) => {
   }
 });
 
+ function updateSelectedDetails() {
+     // localStorage에서 데이터 가져오기
+     const title = localStorage.getItem('hidden-title');
+     const poster = localStorage.getItem('hidden-poster');
+     const date = localStorage.getItem('hidden-date');
+     const time = localStorage.getItem('hidden-time');
+     const seat = localStorage.getItem('hidden-seat');
+
+     // 각 요소에 데이터 설정
+     document.getElementById('selected-movie-title').textContent = title || '';
+     document.getElementById('selected-movie-poster').innerHTML = poster ? `<img src="${poster}" alt="Movie Poster" style="width: 100%; height: auto;">` : '';
+     document.getElementById('selected-date').textContent = date || '';
+     document.getElementById('selected-time').textContent = time || '';
+     document.getElementById('selected-seat').textContent = seat || '';
+ }
+
+     // 페이지가 로드되면 setFormData 함수를 호출합니다.
+     document.addEventListener('DOMContentLoaded', setFormData);
+
+
+
+
 // Initial count and total set
 updateSelectedCount();

@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row">
-                            <div class="content" style="margin-top:447px;">
+                            <div class="content" style="margin-top:250px;">
                                 <div class="row" style="align-items: stretch;">
                                     <div class="col-md-1">
                                         <div class="booking-procedure">1. </br>상영시간</div>
@@ -158,26 +158,29 @@
 
                                         <div class="col-lg-12">
                                             <div class="select-box2">
-                                                <div class="row">
-                                                    <div class="col-sm-2" id="selected-movie-poster" style="width: 200px; max-height: 150px; overflow: hidden;">
+                                                <div class="row text-center">
+                                                    <div class="col" id="selected-movie-poster" style="width: 200px; max-height: 150px; overflow: hidden;">
                                                         <!-- 영화 포스터를 표시할 영역 -->
+                                                        <img th:src="@{${hidden_poster}}" alt="Movie Poster" style="width: 100px; max-height: 160px;"/>
                                                     </div>
-                                                    <div class="col-sm-2" id="selected-movie-title" style="font-weight: bold;">
+                                                    <div class="col" id="selected-movie-title" style="font-weight: bold;">
                                                         <!-- 영화 제목을 표시할 영역 -->
+                                                        <span th:text="${hidden_title}">Movie Title</span>
                                                     </div>
-                                                    <div class="col-sm-2" id="selected-date">
+                                                    <div class="col" id="selected-date">
                                                         <!-- 선택된 날짜를 표시할 영역 -->
+                                                        <span th:text="${hidden_date}">Date</span>
                                                     </div>
-                                                    <div class="col-sm-2" id="selected-time">
+                                                    <div class="col" id="selected-time">
                                                         <!-- 선택된 시간을 표시할 영역 -->
+                                                        <span th:text="${hidden_time}">Time</span>
                                                     </div>
-                                                    <div class="col-sm-2" id="selected-seat">
+                                                    <div class="col" id="selected-seat">
                                                         <!-- 선택된 좌석을 표시할 영역 -->
+                                                        <!-- 선택된 좌석 정보는 서버에서 전달된 데이터에 따라 달라질 수 있습니다. -->
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-
                                 </div>
                                 <!-- 버튼 -->
                                 <div class="col-lg-12">
@@ -196,6 +199,7 @@
     </div>
 </div>
 </div>
+
 
 
         <div th:replace="fragments/footer ::footer"></div>

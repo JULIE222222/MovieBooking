@@ -16,17 +16,9 @@ import java.util.List;
 public class ShowTimeService {
 
     private final ShowTimeRepository showTimeRepository;
-    private final TheaterRepository theaterRepository;
 
     public ShowTime saveShowTime(ShowTime showTime){
         return showTimeRepository.save(showTime);
-    }
-
-    public List<ShowTime> getShowTimesByTheater(Theater theater) {
-        return showTimeRepository.findByTheater(theater);
-    }
-    public List<ShowTime> getAllShowTimes() {
-        return showTimeRepository.findAll();
     }
 
     public List<ShowTime> getShowTimesByDate(String showDate) {
