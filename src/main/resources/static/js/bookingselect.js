@@ -25,6 +25,7 @@ function formatDate(date) {
 function init() {
     populateMonthSelect(); // 월 선택 드롭다운 생성
     updateCalendar(); // 초기 달력 생성
+    monthSelect.addEventListener('change', onMonthChange); // 드롭다운 변경 이벤트 리스너 추가
 }
 
 // 영화 포스터를 렌더링하는 함수

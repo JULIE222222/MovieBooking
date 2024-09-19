@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
- .content {
+ .game-details .content {
     margin-top: 848px;
     display: block;
     width: 100%;
@@ -44,7 +44,7 @@ body {
 }
 
 .movie-container {
-  margin-top: -38px;
+  margin-top: 48px;
   display: flex;
   justify-content: center; /* 수평 가운데 정렬 */
   align-items: center;     /* 수직 가운데 정렬 */
@@ -73,7 +73,7 @@ body {
   margin-bottom: 30px;
 }
 
-.seat {
+.movie-seat .seat {
   background-color: #ffffff;
   color: black;
   height: 28px;
@@ -86,24 +86,27 @@ body {
   justify-content: center;
   font-weight: 800;
   font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s; /* 애니메이션 추가 */
 }
-.seat.selected{
+
+.movie-seat .seat.selected{
   background-color: #6feaf6 ;
 }
 
-.seat.occupied {
+.movie-seat .seat.occupied {
   background-color: #cc0000;
+  cursor: not-allowed; /* 클릭 불가능 표시 */
 }
 
-.seat:nth-of-type(2) {
+.movie-seat .seat:nth-of-type(2) {
   margin-right: 18px;
 }
 
-.seat:nth-last-of-type(2) {
+.movie-seat .seat:nth-last-of-type(2) {
   margin-left: 18px;
 }
 
-.seat:not(.occupied):hover {
+.movie-seat .seat:not(.occupied):hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -126,7 +129,7 @@ body {
 .showcase li {
   display: flex;
   align-items: center;
-  justify-content: right;
+  /*justify-content: right;*/
   margin: 0 10px;
 }
 
@@ -143,8 +146,8 @@ body {
 .screen {
   background-color: #fff;
   height: 75px;
-  width: 70%;
-  margin: 15px 177px;
+  width: 515px;
+  margin: 14px 326px;
   transform: rotateX(-45deg);
   box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
 }
