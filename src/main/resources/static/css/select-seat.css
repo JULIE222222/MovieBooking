@@ -157,14 +157,14 @@ p.text {
 }
 
 p.text span {
-  color: #6feaf6;
+  color: #2b2b2b;
 }
  .select-box2 {
             width: 1277px;
                 height: 183px;
                 padding: 20px;
                 margin-bottom: 20px;
-                margin-left: 0px;
+                margin-left: 116px;
                 /*border-radius: 10px;*/
                 text-align: center;
                 font-size: 18px;
