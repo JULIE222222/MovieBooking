@@ -15,6 +15,7 @@ public class Seats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "seat_id")
     private Long seatID;
 
     private String seatRow; //좌석 열

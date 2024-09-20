@@ -17,13 +17,18 @@ public class Booking {
      @Column (name = "booking_id")
      private Long bookingID;
      private LocalDate bookingDate;
-     private Long totalPrice;
-     private String paymentStatus;
+     //private Long totalPrice;
+     //private String paymentStatus;
 
      @ManyToOne (fetch = FetchType.LAZY)
      @JoinColumn (name = "showTime_id")
      @JsonIgnore
      private ShowTime showTime;
+
+     @ManyToOne (fetch = FetchType.LAZY)
+     @JoinColumn (name = "seats_id")
+     @JsonIgnore
+     private Seats seats;
 
 
 }
