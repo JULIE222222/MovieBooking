@@ -1,10 +1,10 @@
 package com.cinema.controller;
 
-import com.cinema.domain.Movie;
-import com.cinema.domain.ShowTime;
-import com.cinema.domain.Theater;
+import com.cinema.domain.*;
 import com.cinema.domain.form.ShowTimeForm;
+import com.cinema.service.BookingService;
 import com.cinema.service.MovieService;
+import com.cinema.service.SeatsService;
 import com.cinema.service.ShowTimeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cglib.core.Local;
@@ -26,6 +26,8 @@ public class BookingController {
 
     public final MovieService movieService;
     public final ShowTimeService showTimeService;
+    public final SeatsService seatsService;
+    public final BookingService bookingService;
 
     //영화 리스트 띄우기
     @GetMapping("/booking")
@@ -58,20 +60,6 @@ public class BookingController {
         System.out.println("hidden_title = " + hidden_title);
         System.out.println("hidden_date = " + hidden_date);
         System.out.println("hidden_poster = " + hidden_poster);
-
-        return "/reserve/selectSeat";
-    }
-
-
-    //영화관 좌석 선택하기
-    @GetMapping("/selectSeat")
-    public String selectSeat() {
-
-        return "/reserve/selectSeat";
-    }
-
-    @PostMapping("/selectSeat")
-    public String setSelectSeat(){
 
         return "/reserve/selectSeat";
     }

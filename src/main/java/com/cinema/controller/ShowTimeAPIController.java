@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/showtimes")
 @RequiredArgsConstructor
+
 public class ShowTimeAPIController {
     private final ShowTimeService showTimeService;
 

@@ -1,11 +1,11 @@
 package com.cinema.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,22 +13,25 @@ import java.time.LocalDate;
 @Table(name = "Booking")
 public class Booking {
 
-     @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
-     @Column (name = "booking_id")
+     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "booking_id")
      private Long bookingID;
-     private LocalDate bookingDate;
-     //private Long totalPrice;
-     //private String paymentStatus;
 
-     @ManyToOne (fetch = FetchType.LAZY)
-     @JoinColumn (name = "showTime_id")
-     @JsonIgnore
+     private LocalDate bookingDate;
+
+     @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "user_id")
+     private Member member;
+
+     @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "movie_id")
+     private Movie movie;
+
+     @ManyToOne(fetch = FetchType.LAZY)
+     @JoinColumn(name = "show_time_id")
      private ShowTime showTime;
 
-     @ManyToOne (fetch = FetchType.LAZY)
-     @JoinColumn (name = "seats_id")
-     @JsonIgnore
-     private Seats seats;
-
-
+     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL) // 여러 좌석을 가질 수 있도록 변경
+     @JoinColumn(name = "booking_id")
+     private List<Seats> seats;
 }

@@ -19,4 +19,6 @@ public interface ShowTimeRepository extends JpaRepository<ShowTime, Long> {
 
     // 기본 키를 사용하여 검색
     List<ShowTime> findByTheater_TheaterID(Long theaterID);
+
+
 }

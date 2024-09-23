@@ -46,6 +46,7 @@ function renderPoster(posterData) {
 // 영화 선택 함수
 function selectMovie(element) {
     selectedMovieId = element.getAttribute('data-movie-id');
+    document.getElementById('movieID').value = selectedMovieId; // movieID 설정
     const movieTitle = element.textContent;
     const moviePosterUrl = element.getAttribute('data-movie-poster');
 
@@ -116,7 +117,7 @@ function fetchShowTimes(date) {
 
     $.ajax({
         url: '/showtime/getShowTimes',
-        type: 'GET',
+        type: 'POST',
         data: { date: formatDate(date), movieId: selectedMovieId },
         dataType: 'json',
         success: function(showTimes) {
@@ -176,6 +177,7 @@ function renderTimeList(groupedShowTimes) {
 function selectTime(showTimeID, startTime) {
     if (startTime) {
         updateSelectedTime(startTime);
+        document.getElementById('showTimeID').value = showTimeID; // showTimeID 설정
 
         // 상영 시간 로그 출력
         console.log("Selected time:", startTime);
@@ -265,7 +267,7 @@ function setSelectedInfo(poster, title, date, time) {
     document.getElementById('hidden_poster').value = poster;
     document.getElementById('hidden_title').value = title;
     document.getElementById('hidden_date').value = date;
-    document.getElementById('hidden_date').value = date;
+    //document.getElementById('hidden_date').value = date;
     document.getElementById('hidden_time').value = time;
 }
 

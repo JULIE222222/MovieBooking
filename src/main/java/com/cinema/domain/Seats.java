@@ -1,6 +1,5 @@
 package com.cinema.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,22 +18,15 @@ public class Seats {
     private Long seatID;
 
     private String seatRow; //좌석 열
-    private Long seatNum; //좌석 행
+    private String seatNum; //좌석 행
 
     // 생성자에서 좌석 번호 설정
-    public Seats (String row, Long i) {
+    public Seats(String seatRow, String seatNum) {
         this.seatRow = seatRow;
         this.seatNum = seatNum;
     }
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "showtime_id")
-    @JsonIgnore
+    @JoinColumn(name = "show_time_id")
     private ShowTime showTime;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "theater_id")
-    @JsonIgnore
-    private Theater theater;
 
 }

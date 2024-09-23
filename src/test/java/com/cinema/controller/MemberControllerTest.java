@@ -1,4 +1,4 @@
-package com.cinema.service;
+package com.cinema.controller;
 
 import jakarta.transaction.Transactional;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -64,7 +64,7 @@
                                             </div>
 
                                             <p class="text">
-                                                선택한 좌석갯수: <span id="count">0</span>
+                                                선택한 좌석갯수: <span id="count"> 0</span>
                                             </p>
                                         </div>
                                     </div>
@@ -91,11 +91,13 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <input type="hidden" id="movieID" th:value="${hidden_movieId}" />
+                                    <input type="hidden" id="showTimeID" th:value="${hidden_showTimeId}" />
 
                                     <!-- 결제 버튼 -->
                                     <div class="col-lg-12">
                                         <div class="main-border-button">
-                                            <a href="/paid">결제하기</a>
+                                            <button id="submit-booking" type="button">결제하기</button>
                                         </div>
                                     </div>
                                 </div>
