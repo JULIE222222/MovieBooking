@@ -12,7 +12,7 @@
    - 관람하고 싶은 영화와 날짜를 클릭하면 해당 상영시간을 볼 수 있다. (구현중)
   
 [사용언어 및 개발환경]
-Java, intellij, Spring, JPA, Mysql, Spring Security, Gradle, GitHub
+- Java, intellij, Spring, JPA, Mysql, Spring Security, Gradle, GitHub
 
 [추가 구현하고 싶은 기능]
 - 카카오 api를 가져와 결제하기 기능을 구현하고 싶다.
@@ -23,7 +23,7 @@ Java, intellij, Spring, JPA, Mysql, Spring Security, Gradle, GitHub
 ![스크린샷 2024-09-15 185938](https://github.com/user-attachments/assets/a48dc03b-d9af-4839-9e7c-100e092a9606)
 
 [느낀점]
-프로젝트를 시작할 때 어떤 것부터 손을 대야 할지 몰라 어려움을 겪었지만, Spring과 JPA의 기초를 쌓고 자료 검색 및 교수님의 도움으로 문제를 해결해 나가고 있습니다.
+- 프로젝트를 시작할 때 어떤 것부터 손을 대야 할지 몰라 어려움을 겪었지만, Spring과 JPA의 기초를 쌓고 자료 검색 및 교수님의 도움으로 문제를 해결해 나가고 있습니다.
 Spring Security를 적용해 보면서 보안의 중요성도 깨달았습니다. 처음으로 시도한 프로젝트라 다소 미흡하지만, 웹 기능을 혼자서 구현할 수 있어 뿌듯함을 느꼈습니다.
 현재는 영화 예매 기능을 개발 중이며, MySQL 연동과 RESTful API 설계 등의 실무 경험을 쌓고 있습니다.
 
