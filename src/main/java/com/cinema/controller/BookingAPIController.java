@@ -11,16 +11,13 @@ import com.cinema.repository.SeatsRepository;
 import com.cinema.repository.ShowTimeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/booking")
+@RequestMapping(value = "/api/booking", method = RequestMethod.POST)
 public class BookingAPIController {
 
     @Autowired

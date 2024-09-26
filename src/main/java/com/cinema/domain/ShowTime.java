@@ -27,7 +27,7 @@ public class ShowTime {
     private Theater theater; // 극장(객체) 타입~~
 
     @Column(name = "show_date")
-    private String showDate;
+    private LocalDate showDate; // LocalDate로 변경
 
     private LocalTime startTime;
     private LocalTime endTime;

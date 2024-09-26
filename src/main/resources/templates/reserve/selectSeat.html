@@ -91,8 +91,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="hidden" id="movieID" th:value="${hidden_movieId}" />
-                                    <input type="hidden" id="showTimeID" th:value="${hidden_showTimeId}" />
+
+                                    <input type="hidden" id="hidden_movieId" th:text="${hidden_movieId}" />
+                                    <input type="hidden" id="hidden_showTimeId" th:text="${hidden_showTimeId}" />
 
                                     <!-- 결제 버튼 -->
                                     <div class="col-lg-12">

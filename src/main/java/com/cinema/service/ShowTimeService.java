@@ -13,21 +13,15 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class ShowTimeService {
 
     private final ShowTimeRepository showTimeRepository;
 
-    // 상영 시간 저장
-    public ShowTime saveShowTime(ShowTime showTime){
-        return showTimeRepository.save(showTime);
+    public List<ShowTime> getShowTimesByDateAndMovie(LocalDate date, Long movieId) {
+        return showTimeRepository.findByShowDateAndMovie_MovieID(date, movieId);
     }
 
-    // 상영 날짜로 상영 시간 목록 조회
-    public List<ShowTime> getShowTimesByDate(String showDate) {
-        LocalDate parsedDate = LocalDate.parse(showDate);
-        return showTimeRepository.findByShowDate(String.valueOf(parsedDate));
+    public void saveShowTime(ShowTime showTime) {
     }
-
 }

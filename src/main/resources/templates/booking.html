@@ -44,8 +44,7 @@
                                                 <!-- 영화 목록 내용 -->
                                                 <li th:each="movie : ${movies}">
                                                     <div style="margin-right: 10px;">
-                                                        <span th:text="${movie.rating}"
-                                                              style="color: #2b2b2b; font-size: 16px;"></span>
+                                                        <span th:text="${movie.rating}" style="color: #2b2b2b; font-size: 16px;"></span>
                                                         <button th:text="${movie.title}" onclick="selectMovie(this)" th:data-movie-id="${movie.movieID}" style="color: #2b2b2b; font-size: 16px;">
                                                         </button>
                                                     </div>
@@ -66,19 +65,20 @@
                                     <div class="col-md-5">
                                         <div class="selection-title">상영시간</div>
                                         <ul class="time-list">
-                                            <li th:each="showTime : ${showTimes}"></li>
+                                            <li th:each="showTime : ${showTimes}">
+                                                <button th:text="${showTime.startTime}" onclick="selectTime(this)" th:data-showTime-id="${showTime.showTimeID}" th:data-movie-id="${movie.movieID}"></button>
+                                            </li>
                                         </ul>
                                     </div>
 
                                     <!-- 영화, 날짜, 시간 선택 영역 -->
                                     <form action="/prebooking" method="post">
-
                                         <input type="hidden" name="hidden_poster" id="hidden_poster">
                                         <input type="hidden" name="hidden_title" id="hidden_title">
                                         <input type="hidden" name="hidden_date" id="hidden_date">
                                         <input type="hidden" name="hidden_time" id="hidden_time">
-                                        <input type="hidden" id="movieID" th:value="${hidden_movieId}" />
-                                        <input type="hidden" id="showTimeID" th:value="${hidden_showTimeId}" />
+                                        <input type="hidden" name="hidden_movieId" id="hidden_movieId">
+                                        <input type="hidden" name="hidden_showTimeId" id="hidden_showTimeId">
 
                                         <div class="col-lg-12">
                                             <div class="select-box">

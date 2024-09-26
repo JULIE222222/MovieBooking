@@ -5,7 +5,6 @@ const total = document.getElementById("total");
 const seatDisplay = document.getElementById('selected-seat');
 const bookingForm = document.getElementById('bookingForm'); // 폼 요소 추가
 
-
 // 기본 영화 가격 설정
 let ticketPrice = 10000; // 기본 가격 설정
 
@@ -105,12 +104,13 @@ document.getElementById('submit-booking').addEventListener('click', async () => 
     }
 
     const bookingData = {
-         seats: selectedSeats, // 좌석을 배열 그대로 전송
-            movie: document.getElementById('movieID').value, // 영화 ID
-            showTime: document.getElementById('showTimeID').value // 상영시간 ID
-
+        seats: selectedSeats, // 좌석을 배열 그대로 전송
+        movie: document.getElementById('hidden_movieId').value, // 영화 ID
+        showTime: document.getElementById('hidden_showTimeId').value // 상영시간 ID
     };
-    console.log("예약 데이터:", reservationData);
+
+    console.log(document.getElementById('hidden_movieId').value); // 영화 ID 확인
+    console.log(document.getElementById('hidden_showTimeId').value); // 상영시간 ID 확인
 
     try {
         const response = await fetch('/api/booking', {
@@ -120,7 +120,7 @@ document.getElementById('submit-booking').addEventListener('click', async () => 
             },
             body: JSON.stringify(bookingData)
         });
-console.log('예약 데이터:', bookingData);
+
         if (response.ok) {
             const data = await response.json();
             console.log('예약 성공:', data);
@@ -128,8 +128,8 @@ console.log('예약 데이터:', bookingData);
             // 예약 완료 후 처리 (예: 페이지 리디렉션)
         } else {
             const errorData = await response.json(); // 서버에서 반환한 오류 메시지
-                console.error('예약 실패:', errorData);
-                alert(`예약 실패: ${errorData.message || '알 수 없는 오류입니다.'}`);
+            console.error('예약 실패:', errorData);
+            alert(`예약 실패: ${errorData.message || '알 수 없는 오류입니다.'}`);
         }
     } catch (error) {
         console.error('에러:', error);

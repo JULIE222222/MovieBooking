@@ -1,6 +1,7 @@
 package com.cinema.controller;
 
 import com.cinema.domain.*;
+import com.cinema.domain.form.MovieForm;
 import com.cinema.domain.form.ShowTimeForm;
 import com.cinema.service.BookingService;
 import com.cinema.service.MovieService;
@@ -49,17 +50,23 @@ public class BookingController {
         String hidden_title = showTimeForm.getHidden_title();
         LocalDate hidden_date = showTimeForm.getHidden_date();
         LocalTime hidden_time = showTimeForm.getHidden_time();
+        String hidden_movieId = showTimeForm.getHidden_movieId();
+        String hidden_showTimeId = showTimeForm.getHidden_showTimeId();
 
         //가져온 정보를 모델에 추가하여 view에 전달
         model.addAttribute("hidden_poster",hidden_poster);
         model.addAttribute("hidden_title", hidden_title);
         model.addAttribute("hidden_date", hidden_date);
         model.addAttribute("hidden_time", hidden_time);
+        model.addAttribute("hidden_movieId", hidden_movieId);
+        model.addAttribute("hidden_showTimeId", hidden_showTimeId);
 
         System.out.println("hidden_time = " + hidden_time);
         System.out.println("hidden_title = " + hidden_title);
         System.out.println("hidden_date = " + hidden_date);
         System.out.println("hidden_poster = " + hidden_poster);
+        System.out.println("Movie ID: " + hidden_movieId);
+        System.out.println("Show Time ID: " + hidden_showTimeId);
 
         return "/reserve/selectSeat";
     }
