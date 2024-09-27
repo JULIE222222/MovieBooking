@@ -25,8 +25,9 @@ public class ShowTimeAPIController {
     @GetMapping
     public ResponseEntity<Map<String, List<ShowTime>>> getShowTimes(
             @RequestParam(value = "movieId") Long movieId,
-            @RequestParam(value = "date") LocalDate showDate) {
-
+            @RequestParam(value = "date") LocalDate showDate){
+//        System.out.println(showTimeId);
+        System.out.println("movieId = " + movieId);
         List<ShowTime> showTimes = showTimeRepository.findByMovie_MovieIDAndShowDate(movieId, showDate);
 
         if (showTimes.isEmpty()) {

@@ -134,26 +134,6 @@ function selectDate(date) {
 
 }
 
-/*function selectTime1(element) {
- console.log("Element clicked:", element); // 클릭한 요소를 출력
-    // 선택된 showTime ID 가져오기
-    const selectedShowTimeId = element.getAttribute('data-showTime-id');
-    document.getElementById('hidden_showTimeId').value = selectedShowTimeId;
-
-    // 선택한 시간 (버튼의 텍스트)
-    const startTime = element.textContent;
-    // 선택한 영화 ID 가져오기
-    const selectedMovieId = element.getAttribute('data-movie-id');
-
-    // 선택된 값 로그 출력
-    console.log("Selected showTimeID:", selectedShowTimeId);
-    console.log("Selected startTime:", startTime);
-    console.log("Selected movieId:", selectedMovieId);
-
-    // showtime 목록 가져오기
-    fetchShowTimes(selectedMovieId, selectedShowTimeId, startTime);
-}*/
-
 function getTime(selectedMovieId, selectedShowTimeId, startTime) {
   console.log("Selected showTimeID:", selectedShowTimeId);
   console.log("Selected startTime:", startTime);
@@ -177,24 +157,27 @@ function fetchShowTimes(movieId, showTimeId, startTime) {
     console.log("showTimeId:", showTimeId);
     console.log("startTime:", startTime);
 
+    document.getElementById('hidden_showTimeId').value = showTimeId;
+
+
     // Ajax 요청
-    $.ajax({
-        url: '/api/showtimes',
-        type: 'GET',
-        data: {
-            date: formatDate(selectedDate), // 날짜 형식 확인
-            movieId: movieId
-        },
-        dataType: 'json',
-        success: function(showTimes) {
-            console.log("Fetched show times:", showTimes); // 응답 데이터 확인
-            renderTimeList(showTimes); // 화면에 출력
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching show times:", error);
-            console.error("Response text:", xhr.responseText); // 응답 본문 확인
-        }
-    });
+   $.ajax({
+       url: '/api/showtimes',
+       type: 'GET',
+       data: {
+           movieId: movieId,
+           date: formatDate(selectedDate) // 날짜 형식 확인
+       },
+       dataType: 'json',
+       success: function(showTimes) {
+           console.log("Fetched show times:", showTimes); // 응답 데이터 확인
+           renderTimeList(showTimes); // 화면에 출력
+       },
+       error: function(xhr, status, error) {
+           console.error("Error fetching show times:", error);
+           console.error("Response text:", xhr.responseText); // 응답 본문 확인
+       }
+   });
 }
 
 // 상영 시간 목록을 렌더링하는 함수
@@ -249,10 +232,10 @@ function selectTime(showTimeID, startTime, movieId) {
         // fetchShowTimes를 호출하여 상영 시간 가져오기
         fetchShowTimes(movieId, showTimeID, startTime);
 
-        // 새로운 변수에 선택된 상영 시간 ID 저장
-        const selectedShowTimeID = updateSelectedTime(startTime);
-        console.log("데이터 들어왔나" + selectedShowTimeID);
-        document.getElementById('hidden_showTimeId').value = selectedShowTimeID; // showTimeID 필드에 설정
+
+        updateSelectedTime(startTime);
+        /*console.log("데이터 들어왔나" + Time);
+        document.getElementById('hidden_showTimeId').value = Time; // showTimeID 필드에 설정*/
 
         // 새로운 방식 (객체로 전달)
         setSelectedInfo({
@@ -338,9 +321,6 @@ function updateSelectedTime(startTime) {
     const [hours, minutes] = startTime.split(':');
     const formattedTime = `${hours}:${minutes}`;
     document.getElementById('selected-time').textContent = `시간: ${formattedTime}`;
-
-    console.log("여기값은?"+document.getElementById('selected-time').textContent);
-
 }
 
 // 선택한 영화의 정보나 시간, 날짜 등을 설정하는 함수(객체형식)
@@ -350,7 +330,7 @@ function setSelectedInfo(selectedInfo) {
     document.getElementById('hidden_date').value = selectedInfo.date;
     document.getElementById('hidden_time').value = selectedInfo.time;
     document.getElementById('hidden_movieId').value = selectedInfo.movieId;
-    document.getElementById('hidden_showTimeId').value = selectedInfo.showTimeId;
+   // document.getElementById('hidden_showTimeId').value = selectedInfo.showTimeId;
 }
 
 // 초기화 함수 호출
