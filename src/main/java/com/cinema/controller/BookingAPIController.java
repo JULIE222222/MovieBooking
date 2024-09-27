@@ -1,55 +1,22 @@
 package com.cinema.controller;
 
-import com.cinema.domain.Booking;
-import com.cinema.domain.Movie;
-import com.cinema.domain.Seats;
-import com.cinema.domain.ShowTime;
 import com.cinema.dto.BookingDTO;
-import com.cinema.repository.BookingRepository;
-import com.cinema.repository.MovieRepository;
-import com.cinema.repository.SeatsRepository;
-import com.cinema.repository.ShowTimeRepository;
+import com.cinema.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/booking", method = RequestMethod.POST)
 public class BookingAPIController {
 
-    @Autowired
-    private BookingRepository bookingRepository;
-
-    @Autowired
-    private MovieRepository movieRepository; // 영화 Repository 주입
-
-    @Autowired
-    private ShowTimeRepository showTimeRepository; // 상영시간 Repository 주입
-
-    @Autowired
-    private SeatsRepository seatsRepository; // 좌석 Repository 주입
+      @Autowired
+    private BookingService bookingService ;
 
     @PostMapping
-    public ResponseEntity<Booking> createBooking(@RequestBody BookingDTO bookingDTO) {
-        Movie movie = movieRepository.findById(bookingDTO.getMovieId())
-                .orElseThrow(() -> new RuntimeException("Movie not found"));
-
-        ShowTime showTime = showTimeRepository.findById(bookingDTO.getShowTimeId())
-                .orElseThrow(() -> new RuntimeException("ShowTime not found"));
-
-        // 메서드 이름 변경에 따라 수정
-        List<Seats> selectedSeats = seatsRepository.findAllBySeatIDIn(bookingDTO.getSeats());
-
-        Booking booking = new Booking();
-        booking.setMovie(movie);
-        booking.setShowTime(showTime);
-        booking.setSeats(selectedSeats); // List<Seats>로 설정
-        booking.setBookingDate(LocalDate.now());
-
-        bookingRepository.save(booking);
-        return ResponseEntity.ok(booking);
+    public ResponseEntity<Long> createBooking(@RequestBody BookingDTO bookingDTO) {
+        Long bookingId = bookingService.saveBooking(bookingDTO);
+        return ResponseEntity.ok(bookingId); // 예약 ID를 응답으로 반환
     }
+
 }
