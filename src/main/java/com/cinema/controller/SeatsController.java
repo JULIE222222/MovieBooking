@@ -26,10 +26,10 @@ public class SeatsController {
         return "/reserve/selectSeat"; // 좌석 선택 페이지로 이동
     }
 
-    @PostMapping("/selectSeat")
+    /*@PostMapping("/selectSeat")
     public String setSelectSeat() {
         return "/reserve/selectSeat"; // 좌석 선택 후 다시 이동
-    }
+    }*/
 
     // 모든 좌석 정보를 반환하는 API 엔드포인트
     @GetMapping("/api/seats")

@@ -93,6 +93,10 @@ body {
   background-color: #6feaf6 ;
 }
 
+.movie-seat .seat.selected1{
+  background-color: #6feaf6 ;
+}
+
 .movie-seat .seat.occupied {
   background-color: #cc0000;
   cursor: not-allowed; /* 클릭 불가능 표시 */

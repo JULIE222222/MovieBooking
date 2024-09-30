@@ -13,7 +13,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -25,28 +24,35 @@ public class BookingService {
     private final ShowTimeRepository showTimeRepository;
     private final SeatsRepository seatsRepository;
     private final MemberRepository memberRepository;
+    private final MemberService memberService; // MemberService 주입 추가
 
-    public Long saveBooking(BookingDTO bookingDTO) {
-        // ShowTime 찾기
+    public Long createBooking(BookingDTO bookingDTO) {
+        System.out.println("BookingDTO: " + bookingDTO);
+
+        // ShowTime 조회
         ShowTime showTime = showTimeRepository.findById(bookingDTO.getShowTimeId())
-                .orElseThrow(() -> new RuntimeException("ShowTime not found"));
+                .orElseThrow(() -> new RuntimeException("ShowTime not found with ID: " + bookingDTO.getShowTimeId()));
+        System.out.println("ShowTime found: " + showTime);
 
-        // 좌석 리스트 찾기
+        // Member 조회
+        Member member = memberService.nowMember(); // MemberService의 nowMember 호출
+        System.out.println("member = " + member);
+
+        // Seats 조회
         List<Seats> seats = seatsRepository.findAllBySeatIDIn(bookingDTO.getSeats());
+        if (seats.isEmpty()) {
+            throw new RuntimeException("Seats not found for IDs: " + bookingDTO.getSeats());
+        }
+        System.out.println("Seats found: " + seats);
 
-        // Member 찾기
-        Member member = memberRepository.findById(bookingDTO.getMemberId())
-                .orElseThrow(() -> new RuntimeException("Member not found"));
-
-        // Booking 객체 생성 및 설정
+        // Booking 생성 및 저장
         Booking booking = new Booking();
         booking.setShowTime(showTime);
         booking.setSeats(seats);
         booking.setMember(member);
-        booking.setBookingDate(LocalDate.now());
 
-        // 저장 후 Booking ID 반환
         bookingRepository.save(booking);
-        return booking.getBookingID();
+        System.out.println("Booking saved: " + booking);
+        return booking.getBookingID(); // 예약의 ID를 반환
     }
 }

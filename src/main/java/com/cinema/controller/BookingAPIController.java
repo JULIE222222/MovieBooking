@@ -15,7 +15,14 @@ public class BookingAPIController {
 
     @PostMapping
     public ResponseEntity<Long> createBooking(@RequestBody BookingDTO bookingDTO) {
-        Long bookingId = bookingService.saveBooking(bookingDTO);
+        System.out.println("Received booking data: " + bookingDTO);
+
+        // DTO의 필드가 null인지 확인
+        if (bookingDTO.getMovieId() == null || bookingDTO.getShowTimeId() == null) {
+            return ResponseEntity.badRequest().body(null); // 잘못된 요청 처리
+        }
+
+        Long bookingId = bookingService.createBooking(bookingDTO);
         return ResponseEntity.ok(bookingId); // 예약 ID를 응답으로 반환
     }
 

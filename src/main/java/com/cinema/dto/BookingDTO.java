@@ -15,4 +15,14 @@ public class BookingDTO {
     private Long showTimeId; // 상영시간 ID
 
 
+    @Override
+    public String toString() {
+        return "BookingDTO{" +
+                "showTimeId=" + showTimeId +
+                ", memberId=" + memberId +
+                ", seats=" + seats +
+                ", movieId=" + movieId +
+                '}';
+    }
+
 }
